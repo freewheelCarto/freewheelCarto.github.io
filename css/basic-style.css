@@ -1,0 +1,430 @@
+/*
+Simple Responsive Template v 1.2
+
+
+primary styles 
+   Author: www.prowebdesign.ro
+   Add your own styles to customize the project.
+
+
+
+BASE (MOBILE) SIZE
+	These are the mobile styles. It's what people see on their phones.
+	Remember, keep it light: Speed is Important.
+*/
+
+/* typography */
+body{
+	color:#222;
+	font-family:'Ubuntu', Arial, Helvetica, sans-serif; 
+	font-size:1em;
+	line-height:1.4em; 
+	font-weight:normal;
+}
+h1, h2, h3, h4, h5, h6{
+	font-weight:normal;
+	font-family:'Droid Serif', Arial, Helvetica, sans-serif; 
+	line-height:1.5em;
+	margin:.45em 0;
+	padding:0;
+} 
+
+.heads {
+    text-align:center;
+}
+.subheads {text-align: left;}
+
+P, a {
+    font-size:1.1em;
+}
+
+#hero p {
+    color:rgba(20,20,20,0.9);
+    font-size:1.2em;
+    text-align: justify;
+    background-color:rgba(250,250,250,0.7);
+    padding:10px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius: 10px;
+    line-height: 1.5em;
+}
+
+#caption {
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+}
+/* links */
+a,
+a:visited,
+a:active,
+a:hover{color:#444;}
+a:hover{ text-decoration:none;}
+
+
+/* Box sizing. Awesome thing. Read about it here: http://www.w3schools.com/cssref/css3_pr_box-sizing.asp */
+*{	box-sizing:border-box;
+	-moz-box-sizing:border-box;}
+
+#topnav {
+    margin: 1% 0 0 0;
+}
+
+#topnav ul li {
+    display:inline-block;
+    margin:1% 1em;
+    font-size:1.5em;
+    min-width: 100px;
+}
+
+/* structure */   
+.wrapper{
+	width: 100%; 
+	margin: 0 auto;
+    text-align: center;
+}
+header{ 
+	padding:15px 0;
+}
+
+#banner_int{ 
+	text-align:center;
+    width:100%;
+    margin-bottom:10px;
+    overflow:hidden;
+}
+
+#backup {
+    background-image: url('../images/up.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    height:40px;
+    width:40px;
+    border:2px solid orange;
+    border-radius:2px;
+    background-color:orange;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(20,20,20,0.5);
+}
+#backup:hover {box-shadow:0 0 0 0;}
+
+#hero,
+#page-header{
+	padding:10px 0;
+}
+
+#logo_int {
+    width:100%;
+}
+
+
+#hero h1{ 
+	line-height:1.2em;
+	margin-top:0px;
+	margin-bottom:10px;
+}
+
+.flexslider{
+	display:none;
+}
+
+#content {  
+	margin:40px 0;
+}
+
+aside { 
+	margin:40px 0;
+}
+
+p{ margin:0 0 1.5em;}
+
+.projects{
+    position:fixed;
+    width: 100%;
+    opacity:0.95;
+    background-color:#e6e6e6;
+    height:27px;
+    bottom:0px;
+    margin:0;
+    z-index: 10000;
+}
+
+.terms {
+    display:inline-block;
+    margin: 0.3em;
+    text-align: center;
+    min-width:120px;
+    font-size:1.5em;
+    border-bottom: 3px solid #85FFAD;
+    padding:0 10px;
+}
+
+.inlink{color:#ddd}
+
+.aboutText {width:95%; height: auto; min-height: 100px; margin:1.5em auto;}
+
+/* RESPONSIVE IMAGES */
+img{ max-width:100%; height:auto;}
+
+/*SPACE GRID ELEMENTS VERTICALLY, SINCE THEY ARE ONE UNDER ANOTHER SO FAR*/
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+	margin-bottom:20px;
+	/*positioning and padding*/
+	position: relative;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.grid_3 img {border-radius:3%;}
+
+.grid_3 a {
+    text-decoration:none;
+}
+.grid_3 a:hover {
+    opacity:0.8;
+}
+
+/*FOOTER*/
+footer{  
+	clear:both;
+	font-size:90%;
+	padding:10px 0;
+}
+footer ul{
+	margin:0;
+	padding:0;
+}
+
+/*colors and backgrounds*/
+body{
+	background:#C1C1B6;
+}
+h1, h2, h3, h4, h5, h6{
+	color:#222; 
+}
+
+footer{ 
+	background:#333;
+	color:#ccc;
+}
+footer h1, footer h2, footer h3, footer h4{ 
+	color:#CCC; 
+	margin-bottom:10px;
+}
+
+footer ul{
+	margin:0 0 0 8%;
+}
+
+a.buttonlink{ 
+	background:gray; 
+	border-radius:5px; 
+	color:#fff;
+	display:block;
+	float:left; 
+	margin:10px 15px 10px 0; 
+	padding:10px;
+	text-decoration:none;
+}
+
+.greenelement{
+	background:#5ec79e;
+	color:#fff;
+}
+.violetelement{
+	background:#887dc2;
+	color:#fff;
+}
+
+
+
+/* Contain floats*/ 
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after,
+.container:after,
+.row:after{
+  clear: both;
+}
+
+
+
+/*
+LARGER MOBILE DEVICES
+This is for mobile devices with a bit larger screens.
+*/
+@media only screen and (min-width: 481px) {
+#banner_int{
+	float:left;
+	text-align:left;
+	margin-bottom:0px;/*this depends on the height of the logo*/
+    width:95%;
+    overflow: hidden;
+}
+
+} 
+
+/*
+TABLET & SMALLER LAPTOPS
+The average viewing window and preferred media query for those is 768px.
+But I think that some more breathing space is good:)
+*/
+@media only screen and (min-width: 600px) {
+
+.wrapper{
+	max-width: 1200px; 
+	margin: .75em auto;
+}
+
+#banner_int{ 
+	float:left; 
+	text-align:left;
+	margin-bottom:0px;
+    width:95%;
+    overflow:hidden;
+}
+    
+header{
+	padding:0;
+}
+#content {  
+	float:left;
+	width:65%;
+}
+#content.wide-content{
+	float:none;
+	width:100%;
+}
+    
+
+aside { 
+	float:right;
+	width:30%;
+}
+
+/*GRID*/
+/*
+ & Columns : 12 
+
+ */
+ .row{
+	 margin-left: 2%;
+     margin-right: 2%;
+}
+ 
+.grid_1 { width: 8.33333333%; }
+.grid_2 { width: 16.66666667%; }
+.grid_3 { width: 25%; }
+.grid_4 { width: 33.33333333%; }
+.grid_5 { width: 41.66666667%; }
+.grid_6 { width: 50%; }
+.grid_7 { width: 58.33333333%; }
+.grid_8 { width: 66.66666667%; }
+.grid_9 { width: 75%; }
+.grid_10 { width: 83.33333333%; }
+.grid_11 { width: 91.66666667%; }
+.grid_12 { width: 100%; }
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+	float: left;
+	display: block;
+}
+
+.rightfloat{float:right;}
+/* @notation inspired by tinyGrid, .row and percentage by Twitter Bootstrap
+ */
+ 
+#hero [class*="grid_"] { margin-bottom:-20px;}
+
+}
+
+/*
+DESKTOP
+This is the average viewing window. So Desktops, Laptops, and
+in general anyone not viewing on a mobile device. Here's where
+you can add resource intensive styles.
+*/
+@media only screen and (min-width: 1030px) {
+
+} 
+
+/*
+LARGE VIEWING SIZE
+This is for the larger monitors and possibly full screen viewers.
+*/
+@media only screen and (min-width: 1240px) {
+
+} 
+
+/*
+RETINA (2x RESOLUTION DEVICES)
+This applies to the retina iPhone (4s) and iPad (2,3) along with
+other displays with a 2x resolution.
+*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+
+
+} 
+
+/*
+iPHONE 5 MEDIA QUERY
+iPhone 5 or iPod Touch 5th generation styles (you can include your own file if you want)
+*/
+@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) { 
+
+  
+}
+
+/*
+PRINT STYLESHEET
+*/
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: none; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+
+/*additional stuff not a part of template*/

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+<meta charset=utf-8 />
+<title>Bicycling the Soda City</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="bigSlide.js"></script>
+<link href="map.css" rel="stylesheet" type="text/css">
+</head>
+    
+<body>
+    <div id="header"> 
+        <h4><strong>CYCLING SODA CITY</strong><br>
+        A look at getting around by bicycle in downtown Columbia, SC </h4>
+        <a href="#menu" class="menu-link">&#10148; LEGEND</a>
+    </div>
+    <div id="menu" class="panel" role="navigation">
+        <h4>LEGEND</h4>
+		<p><strong>Bike-ability Score</strong></p>
+        <ul>
+            <li>Best Score</li>
+            <li>
+                <div class="legendItem" style="background-color:blue"></div>
+            </li>
+            <li>
+                <div class="legendItem" style="background-color:#33ccff"></div>
+            </li>
+            <li>
+                <div class="legendItem" style="background-color:#00FF00"></div>
+            </li>
+            <li>
+                <div class="legendItem" style="background-color:#D1E057"></div>
+            </li>
+            <li>
+                <div class="legendItem" style="background-color:#FF9933"></div>
+            </li>
+            <li>
+                <div class="legendItem" style="background-color:#FF4719"></div>
+            </li>
+            <li>Worst Score</li>
+        </ul>
+        <p>Click the <img style="height: 30px; width:auto;" src="layers.JPG"/> for more layers.</p>
+        <div id="about">
+        <h4>ABOUT</h4>
+            <p id="desc">Columbia, South Carolina is a great place to ride a bike! It's a great geography for cycling. Unfortunately, the city's design and infrastructure don't take advantage of the cycling potential... yet! This map is a semi-quantitative attempt to visualize where and how to navigate Columbia on a bike using various <span id="inset_text">road data, elevation data, and some anecdotal insight.</span> Hopefully it will help to highlight where bicycle specific design is needed. Explore the map... There's positive stuff on there too!</p>
+		<h4 style="text-align:center">
+			<a href="http://www.freewheelmaps.com/projects/colabike" target="_blank">MORE DETAILS...</a>
+		</h4>
+        <p style="bottom:0; text-align:center;"><a href="http://www.freewheelmaps.com">&copy; Freewheel Cartographics</a></p> 
+            <br>
+        </div>
+	</div>    
+<script>
+$(document).ready(function() {
+        $('.menu-link').bigSlide();
+        
+    });
+</script>      
+</div>    
+
+<div id='map'></div>
+  
+<script src="bike.geojson" type="text/javascript"></script>
+<script src="trails.geojson" type="text/javascript"></script>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoidGFuZ25hcjEyMyIsImEiOiJueWxpUlNFIn0.fCB4TA8jFHXZ5VBV243m3A';
+var map = L.mapbox.map('map', 'tangnar123.jiiio5n8',{
+	maxZoom:17,
+	minZoom:13,
+    zoomControl:false
+});	
+    map.setView([34.0, -81.033], 14);
+    
+var aerial = L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
+	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
+	subdomains: '1234'
+});    
+    
+var bikeRas = L.mapbox.tileLayer('tangnar123.lp36jemi').addTo(map);
+    
+var streets = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/roads_and_labels/{z}/{x}/{y}.png', {
+	minZoom: 0,
+	maxZoom: 18,
+    opacity: 0.7,
+	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+});
+  
+var bikeStyle = {
+	"color": "#66ffff",
+	"weight": 6,
+	"opacity": 0.9,
+    "dashArray": "10, 10"
+};
+    
+var pathStyle = {
+	"color": "#FFffcc",
+	"weight": 4,
+	"opacity": 0.9,
+    "dashArray":"10, 10"
+};
+
+var bikeLanes = L.geoJson(bike,{
+		style: bikeStyle
+});
+
+var pathLanes = L.geoJson(paths, {
+		style: pathStyle
+});
+
+var overlays = {
+    "Aerial":aerial,
+    "Streets":streets,
+    "Bicycling Analysis":bikeRas,
+    "Bike Lanes":bikeLanes,
+    "Paths and Trails":pathLanes    
+};
+	
+L.control.layers(null,overlays, {
+    collapsed: true,
+    position: 'topright'
+}).addTo(map);  
+
+L.control.zoom({position: 'bottomright'}).addTo(map);
+    
+</script> 
+</body>
+</html>
