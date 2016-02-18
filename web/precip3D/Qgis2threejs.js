@@ -9,7 +9,7 @@ Q3D.Options = {
   bgcolor: null,
   light: {
     directional: {
-      azimuth: 220,   // note: default light azimuth of gdaldem hillshade is 315.
+      azimuth: 1,   // note: default light azimuth of gdaldem hillshade is 315.
       altitude: 45    // altitude angle
     }
   },
