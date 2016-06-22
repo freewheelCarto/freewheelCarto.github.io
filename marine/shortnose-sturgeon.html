@@ -1,238 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    
+
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
     <title>Marine Species Rule!</title>
-    
+
     <link rel="stylesheet" href="https://js.arcgis.com/3.16/dijit/themes/claro/claro.css">
     <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
-    <style>
-      html, body, #mapDiv {
-        padding:0;
-        margin:0;
-        height:100%;
-      }
-
-      #mapDiv {
-        position: relative;
-      }
-
-      #bottomPanel {
-        top:1em;
-        right:1em;
-        position: absolute;
-      }
-
-      #timeInfo{
-        border-radius: 4px;
-        border: solid 2px #ccc;
-        background-color: rgba(240,240,240,0.7);
-        display: block;
-        padding: 5px;
-        position: relative;
-        text-align: center;
-        width: 800px;
-        z-index: 99;
-      }
-    </style>
+    <link rel="stylesheet" href="mapStyle.css">
 
     <script src="https://js.arcgis.com/3.16/"></script>
+
     <script>
-      var map;
-      require([
-        "esri/map", "esri/layers/FeatureLayer", "esri/symbols/SimpleMarkerSymbol", "esri/symbols/SimpleFillSymbol",
-    "esri/symbols/SimpleLineSymbol",
-    "esri/Color",
-    "esri/renderers/UniqueValueRenderer",
-        "esri/TimeExtent", "esri/dijit/TimeSlider",
-        "dojo/_base/array", "dojo/dom", "dojo/domReady!"
-      ], function(
-        Map, FeatureLayer, SimpleMarkerSymbol,SimpleFillSymbol, SimpleLineSymbol, Color, UniqueValueRenderer, 
-        TimeExtent, TimeSlider,
-        arrayUtils, dom
-      ) {
-        map = new Map("mapDiv", {
-          basemap: "satellite",
-          center: [-81, 32.2],
-          zoom:  8
-        });
-        
-        var speciesLayer = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/marineSpecies/FeatureServer/0", {
-            mode: FeatureLayer.MODE_SNAPSHOT,
-            outFields: ["*"]
-        });
-          
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//              CHANGE BELOW TO CHANGE THE SPECIES TO WHICH THE FILE DISPLAYS FROM THE FEATURE SERVICE                   //
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-          
-        speciesLayer.setDefinitionExpression("Species = 'Shortnose Sturgeon'") 
-        
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//              CHANGE ABOVE TO CHANGE THE SPECIES TO WHICH THE FILE DISPLAYS FROM THE FEATURE SERVICE                   //
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////        
-        
-         var defaultSym = new SimpleMarkerSymbol().setOutline(new SimpleLineSymbol().setWidth(0.3).setColor(new Color([20,20,20,0.7]))); 
-        
-        renderer = new UniqueValueRenderer(defaultSym, "tag_days");
-          
-        var colorViz = {
-            "type": "colorInfo",
-            "field": "Mo",
-            "stops": [
-               {
-                 "value": 1,
-                 "color": new Color([0,102,255,0.8]),
-               },
-              {
-                 "value": 2,
-                 "color": new Color([51,153,255,0.8]),
-              },
-              {
-                 "value": 3,
-                 "color": new Color([102,204,255,0.8]),
-              },
-               {
-                 "value": 4,
-                 "color": new Color([51,153,51,0.8]),
-               },
-              {
-                 "value": 5,
-                 "color": new Color([0,204,102,0.8]),
-              },
-              {
-                 "value": 6,
-                 "color": new Color([0,255,153,0.8]),
-              },
-               {
-                 "value": 7,
-                 "color": new Color([255,51,0,0.8]),
-               },
-              {
-                 "value": 8,
-                 "color": new Color([255,102,0,0.8]),
-              },
-              {
-                 "value": 9,
-                 "color": new Color([255,153,51,0.8]),
-              },
-               {
-                 "value": 10,
-                 "color": new Color([255,255,0,0.8]),
-               },
-              {
-                 "value": 11,
-                 "color": new Color([255,255,102,0.8]),
-              },
-              {
-                 "value": 12,
-                 "color": new Color([255,255,153,0.8]),
-              },
-            ]
-        }
+        //////////////////////////////////////////////////////////////
+        //              CHANGE SPECIES NAME HERE                    //       
 
-        var sizeViz = {
-            "type": "sizeInfo",
-            "field": "tag_days",
-            "minDataValue": 1,
-            "maxDataValue": 60,
-            "valueUnit": "unknown",
+        var speciesName = 'Shortnose Sturgeon'
 
-            "minSize": {
-              "type": "sizeInfo",
-              "expression": "view.scale",
-              "stops": [
-                { "value": 1128, "size": 8 },
-                { "value": 288895, "size": 8 },
-                { "value": 73957191, "size": 5 },
-                { "value": 591657528, "size": 2 }
-               ]
-              },
-
-             "maxSize": {
-             "type": "sizeInfo",
-             "expression": "view.scale",
-             "stops": [
-               { "value": 1128, "size": 60 },
-               { "value": 288895, "size": 60 },
-               { "value": 73957191, "size": 30 },
-               { "value": 591657528, "size": 10 }
-              ]
-          }
-      }
-        
-        renderer.setVisualVariables([sizeViz, colorViz]);
-          
-        speciesLayer.setRenderer(renderer);  
-          
-        map.addLayer(speciesLayer);
-
-        map.on("layer-add-result", initSlider);
-
-        function initSlider() {
-          var timeSlider = new TimeSlider({
-            style: "width: 100%;",
-            options: {
-                excludeDataAtLeadingThumb: true
-            }
-          }, dom.byId("timeSliderDiv"));
-            
-          map.setTimeSlider(timeSlider);
-          
-          var timeExtent = new TimeExtent();
-          timeExtent.startTime = new Date("12/01/2013 UTC");
-          timeExtent.endTime = new Date("06/01/2016 UTC");
-          timeSlider.setThumbCount(2);
-          timeSlider.createTimeStopsByTimeInterval(timeExtent, 1, "esriTimeUnitsMonths");
-          timeSlider.setThumbIndexes([0,1]);
-          timeSlider.setThumbMovingRate(400);
-          timeSlider.startup();
-          
-          var month = new Array(12);
-            month[0] = "January";
-            month[1] = "February";
-            month[2] = "March";
-            month[3] = "April";
-            month[4] = "May";
-            month[5] = "June";
-            month[6] = "July";
-            month[7] = "August";
-            month[8] = "September";
-            month[9] = "October";
-            month[10] = "November";
-            month[11] = "December";    
-            
-          //add labels for every other time stop
-          var labels = arrayUtils.map(timeSlider.timeStops, function(timeStop, i) { 
-              if (i % 3 === 0){
-                  return month[timeStop.getUTCMonth()]
-              } else {
-                  return ""
-              }
-          }); 
-          
-          timeSlider.setLabels(labels);
-          
-          timeSlider.on("time-extent-change", function(evt) {
-            var month = evt.endTime.toDateString().split(" ")[1];
-            var year = evt.endTime.toDateString().split(" ")[3]
-            dom.byId("daterange").innerHTML = month + " " + year + " - Tag Days: " + tagdays;
-          });
-        }
-      });
+        //                                                          //               
+        //////////////////////////////////////////////////////////////
     </script>
-  </head>
-  <body class="claro">
+
+    <script src="marineAnimation.js"></script>
+
+</head>
+
+<body class="claro">
 
     <div id="mapDiv">
-      <div id="bottomPanel">
-        <div id="timeInfo">
-          <div id="timeSliderDiv"></div>
-          <h3 id="daterange">Month</h3>
+        <div id="bottomPanel">
+            <div id="timeInfo">
+                <div id="timeSliderDiv"></div>
+            </div>
         </div>
-      </div>
+        <div id="stats">
+            <div class="statdiv"><h3>Total Tag Days</h3><span id="count"></span></div>
+            <div class="divider"></div>
+            <div class="statdiv" id="stations"><h3># of Receivers</h3></div>
+            <div class="divider"></div>
+            <div class="statdiv" id="seasons"><h3>Season #</h3></div>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>
