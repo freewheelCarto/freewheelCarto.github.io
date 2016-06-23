@@ -21,6 +21,9 @@
 
         //                                                          //               
         //////////////////////////////////////////////////////////////
+        
+        window.onload = function(){document.getElementById("speciesName").innerHTML = speciesName};
+        
     </script>
 
     <script src="marineAnimation.js"></script>
@@ -36,11 +39,22 @@
             </div>
         </div>
         <div id="stats">
-            <div class="statdiv"><h3>Total Tag Days</h3><span id="count"></span></div>
-            <div class="divider"></div>
-            <div class="statdiv" id="stations"><h3># of Receivers</h3></div>
-            <div class="divider"></div>
-            <div class="statdiv" id="seasons"><h3>Month/Year</h3></div>
+            <table>
+              <tr class="theader">
+                <th colspan="3" id="speciesName"></th>
+              </tr>
+              <tr class="theader">
+                <th>Month/Year</th>
+                <th># Tag Days</th>
+                <th># Receivers</th>
+              </tr>
+              <tr>
+                <td id="date"></td>
+                <td id="total"></td>
+                <td id="stations"></td>
+              </tr>
+            </table>
+            
         </div>
     </div>
 </body>

@@ -4,25 +4,34 @@
      "esri/symbols/SimpleLineSymbol",
      "esri/Color",
      "esri/renderers/UniqueValueRenderer",
-     "esri/TimeExtent", "esri/dijit/TimeSlider", "esri/plugins/FeatureLayerStatistics","esri/tasks/query",
+     "esri/TimeExtent", "esri/dijit/TimeSlider", "esri/plugins/FeatureLayerStatistics", "esri/tasks/query", 
      "dojo/_base/array", "dojo/dom", "dojo/domReady!"
  ], function(
      Map, FeatureLayer, SimpleMarkerSymbol, SimpleFillSymbol, SimpleLineSymbol, Color, UniqueValueRenderer,
-     TimeExtent, TimeSlider, FeatureLayerStatistics,Query,
+     TimeExtent, TimeSlider, FeatureLayerStatistics, Query, 
      arrayUtils, dom
  ) {
      map = new Map("mapDiv", {
          basemap: "satellite",
          center: [-81, 32.2],
-         zoom: 8
+         zoom: 8,
+         maxZoom: 11,
+         minZoom:7
      });
 
      var speciesLayer = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/marineSpecies/FeatureServer/0", {
          mode: FeatureLayer.MODE_SNAPSHOT,
          outFields: ["*"]
      });
-
+     
      speciesLayer.setDefinitionExpression("Species = '" + speciesName + "'")
+     
+     var speciesLayerNo = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/marineSpecies/FeatureServer/0", {
+         mode: FeatureLayer.MODE_SNAPSHOT,
+         outFields: ["*"]
+     });
+     speciesLayerNo.setDefinitionExpression("Species = '" + speciesName + "'")
+     
 
      var arrayLayer = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/arrayReceivers/FeatureServer/0");
      map.addLayer(arrayLayer);
@@ -84,17 +93,14 @@
              "type": "sizeInfo",
              "expression": "view.scale",
              "stops": [{
-                 "value": 1128,
+                 "value": 1000,
+                 "size": 12
+             }, {
+                 "value": 500000,
+                 "size": 10
+             }, {
+                 "value": 2000000,
                  "size": 8
-             }, {
-                 "value": 288895,
-                 "size": 8
-             }, {
-                 "value": 73957191,
-                 "size": 5
-             }, {
-                 "value": 591657528,
-                 "size": 2
              }]
          },
 
@@ -102,17 +108,14 @@
              "type": "sizeInfo",
              "expression": "view.scale",
              "stops": [{
-                 "value": 1128,
+                 "value": 1000,
+                 "size": 80
+             }, {
+                 "value": 500000,
+                 "size": 70
+             }, {
+                 "value": 2000000,
                  "size": 60
-             }, {
-                 "value": 288895,
-                 "size": 60
-             }, {
-                 "value": 73957191,
-                 "size": 30
-             }, {
-                 "value": 591657528,
-                 "size": 10
              }]
          }
      }
@@ -124,14 +127,7 @@
      map.addLayer(speciesLayer);
 
      map.on("layer-add-result", initSlider);
-
-     var speciesStat = new FeatureLayerStatistics({
-         layer: speciesLayer
-     });
-     var speciesStatParam = {
-         field: "tag_days"
-     };
-
+     
      function initSlider() {
          var timeSlider = new TimeSlider({
              style: "width: 100%;",
@@ -148,7 +144,7 @@
          timeSlider.setThumbCount(2);
          timeSlider.createTimeStopsByTimeInterval(timeExtent, 1, "esriTimeUnitsMonths");
          timeSlider.setThumbIndexes([0, 1]);
-         timeSlider.setThumbMovingRate(400);
+         timeSlider.setThumbMovingRate(1300);
          timeSlider.setLoop(true);
          timeSlider.startup();
 
@@ -177,26 +173,24 @@
 
          timeSlider.setLabels(labels);
 
+         dom.byId("date").innerHTML = "Dec<br>2013"
+
          timeSlider.on("time-extent-change", function(evt) {
              var month = evt.endTime.toDateString().split(" ")[1]
              var year = evt.endTime.toDateString().split(" ")[3]
 
-//should be able to get the time extent from the time slider and apply it to a query, which then can be used to run stats! or maybe we can access the queried data somehow.         
-
-             var speciesTimeExtent = timeSlider.getCurrentTimeExtent();
-
-             var timeQuery = new Query();
+             dom.byId("date").innerHTML = month + "<br>" + year
              
-             timeQuery.timeExtent = speciesTimeExtent;
+             speciesLayerNo.setTimeDefinition(evt);
              
-             speciesLayer.queryFeatures(timeQuery, function(featureSet) {
-                 featureSet.getFieldStatistics(speciesStatParam).then(function(result) {
-                     var total = result.sum
-                     dom.byId("count").innerHTML = total
-                 });
+             var featureLayerStats = new FeatureLayerStatistics({ layer: speciesLayerNo });
+             var featureLayerStatsParams = {field: "tag_days"};
+             
+             featureLayerStats.getFieldStatistics(featureLayerStatsParams).then(function(result){
+                 dom.byId("total").innerHTML = result.sum;
+                 dom.byId("stations").innerHTML = result.count;
              });
-//deal with above...........             
-
          });
      }
+
  });
