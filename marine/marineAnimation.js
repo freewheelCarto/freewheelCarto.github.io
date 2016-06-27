@@ -14,6 +14,7 @@
      map = new Map("mapDiv", {
          basemap: "satellite",
          center: [-80.5, 31.5],
+         slider:false,
          zoom: 8,
          maxZoom: 10,
          minZoom:7
