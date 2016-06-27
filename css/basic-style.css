@@ -54,6 +54,8 @@ P, a {
     border-bottom-right-radius: 0;
     text-align: center;
 }
+
+.desc {font-size:0.8em;}
 /* links */
 a,
 a:visited,
@@ -140,7 +142,7 @@ aside {
 	margin:40px 0;
 }
 
-p{ margin:0 0 1.5em;}
+p{ margin:0;}
 
 .projects{
     position:fixed;
