@@ -13,9 +13,9 @@
  ) {
      map = new Map("mapDiv", {
          basemap: "satellite",
-         center: [-81, 32.2],
+         center: [-80.5, 31.5],
          zoom: 8,
-         maxZoom: 11,
+         maxZoom: 10,
          minZoom:7
      });
 
@@ -148,33 +148,23 @@
          timeSlider.setLoop(true);
          timeSlider.startup();
 
-         var month = new Array(12);
-         month[0] = "Jan";
-         month[1] = "Feb";
-         month[2] = "March";
-         month[3] = "April";
-         month[4] = "May";
-         month[5] = "June";
-         month[6] = "July";
-         month[7] = "Aug";
-         month[8] = "Sept";
-         month[9] = "Oct";
-         month[10] = "Nov";
-         month[11] = "Dec";
-
          //add labels for every other time stop
          var labels = arrayUtils.map(timeSlider.timeStops, function(timeStop, i) {
-             if (i % 3 === 0) {
-                 return month[timeStop.getUTCMonth()]
+             if (i > 0 && (i == 1 || i % 13 == 0)) {
+                 return "Jan<br>" + timeStop.getUTCFullYear();
              } else {
                  return ""
              }
          });
 
          timeSlider.setLabels(labels);
-
+         
+//NEED A WAY TO GET AUTO DATE AND AUTO STATS FILTERED FOR FIRST TIME INTERVAL BEFORE ANYONE PRESSES PLAY. 
          dom.byId("date").innerHTML = "Dec<br>2013"
-
+         
+         var featureLayerStats = new FeatureLayerStatistics({ layer: speciesLayerNo });
+         var featureLayerStatsParams = {field: "tag_days"};
+         
          timeSlider.on("time-extent-change", function(evt) {
              var month = evt.endTime.toDateString().split(" ")[1]
              var year = evt.endTime.toDateString().split(" ")[3]
@@ -183,11 +173,17 @@
              
              speciesLayerNo.setTimeDefinition(evt);
              
-             var featureLayerStats = new FeatureLayerStatistics({ layer: speciesLayerNo });
-             var featureLayerStatsParams = {field: "tag_days"};
-             
+//GET THE FEATURE STATS EACH TIME THAT THE TIME EXTENT CHANGES              
              featureLayerStats.getFieldStatistics(featureLayerStatsParams).then(function(result){
-                 dom.byId("total").innerHTML = result.sum;
+                 function total (){
+                     if (result.sum > 0){
+                         return  result.sum
+                     } else {
+                         return "0"
+                     }
+                 };
+                 
+                 dom.byId("total").innerHTML = total();
                  dom.byId("stations").innerHTML = result.count;
              });
          });

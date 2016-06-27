@@ -11,40 +11,43 @@ body,
 }
 
 #bottomPanel {
-    top: 1em;
-    right: 1em;
+    bottom: 3em;
+    right: 0.5em;
     position: absolute;
+    width:60%;
+    min-width: 300px;
 }
 
 #timeInfo {
     border-radius: 4px;
-    border: solid 2px #ccc;
-    background-color: rgba(240, 240, 240, 0.8);
+    background-color: rgba(255, 255, 255, 0.3);
     display: block;
     padding: 5px;
     position: relative;
     text-align: center;
-    width: 800px;
-    height:40px;
+    height:60px;
     z-index: 99;
 }
+.dijitRuleLabel{color:#fff;}
+
 
 #stats {
     position: absolute;
-    top: 5.5em;
-    right: 1.0em;
+    bottom: 8em;
+    right: 0.5em;
     border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
     height:110px;
-    width:430px;
-    background-color:rgba(240,240,240, 0.8);
+    width:40%;
+    min-width: 300px;
+    max-width: 500px;
     z-index: 1000;
     text-align: center;
     font-family: Verdana, sans-serif;
-    border: solid 2px #ccc;
 }
 #speciesName{
-    color:#333;
-    border-bottom: 1px solid gray;
+    color:#fff;
+    border-bottom: 1px solid #ddd;
 }
 
 #stats table {
@@ -59,26 +62,17 @@ body,
 }
 
 #stats th{
-    color:#333;
+    color:#eee;
     padding:0px;
     margin:0px;
     font-size: 0.9em;
 }
 
-#date {
-    font-size:1.1em;
-    color:#056161;
+#stats table td {
+    font-size:1em;
+    color:#002266;
     font-weight: bold;
 }
-#total {
-    font-size:1.2em;
-    color:#005580;
-    font-weight: bold;
-}
-#stations {
-    font-size:1.2em;
-    color:#1f3d7a;
-    font-weight: bold;
-}
+
 
 .dijitRuleLabelH {font-family: Verdana, sans-serif;font-size:1.2em;}
