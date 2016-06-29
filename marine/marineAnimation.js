@@ -1,193 +1,217 @@
- var map;
- require([
-     "esri/map", "esri/layers/FeatureLayer", "esri/symbols/SimpleMarkerSymbol", "esri/symbols/SimpleFillSymbol",
-     "esri/symbols/SimpleLineSymbol",
-     "esri/Color",
-     "esri/renderers/UniqueValueRenderer",
-     "esri/TimeExtent", "esri/dijit/TimeSlider", "esri/plugins/FeatureLayerStatistics", "esri/tasks/query", 
-     "dojo/_base/array", "dojo/dom", "dojo/domReady!"
- ], function(
-     Map, FeatureLayer, SimpleMarkerSymbol, SimpleFillSymbol, SimpleLineSymbol, Color, UniqueValueRenderer,
-     TimeExtent, TimeSlider, FeatureLayerStatistics, Query, 
-     arrayUtils, dom
- ) {
-     map = new Map("mapDiv", {
-         basemap: "satellite",
-         center: [-80.5, 31.5],
-         slider:false,
-         zoom: 8,
-         maxZoom: 10,
-         minZoom:7
-     });
+/*
+Developed for SCDNR Marine Resources Division by SCDNR GIS staff. 
+Date: 6/29/2016
+Developer: Tanner Arrington
 
-     var speciesLayer = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/marineSpecies/FeatureServer/0", {
-         mode: FeatureLayer.MODE_SNAPSHOT,
-         outFields: ["*"]
-     });
-     
-     speciesLayer.setDefinitionExpression("Species = '" + speciesName + "'")
-     
-     var speciesLayerNo = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/marineSpecies/FeatureServer/0", {
-         mode: FeatureLayer.MODE_SNAPSHOT,
-         outFields: ["*"]
-     });
-     speciesLayerNo.setDefinitionExpression("Species = '" + speciesName + "'")
-     
+lower case comments are remarks about finished funcionality
 
-     var arrayLayer = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/arrayReceivers/FeatureServer/0");
-     map.addLayer(arrayLayer);
+UPPER CASE COMMENTS INDICATE IMPROVEMENTS OR CHANGES THAT NEED TO MADE
+*/
 
-     var defaultSym = new SimpleMarkerSymbol().setOutline(new SimpleLineSymbol().setWidth(0.3).setColor(new Color([20, 20, 20, 0.7])));
+var map;
+require([
+    "esri/map", "esri/layers/FeatureLayer", "esri/symbols/SimpleMarkerSymbol", "esri/symbols/SimpleFillSymbol",
+    "esri/symbols/SimpleLineSymbol",
+    "esri/Color",
+    "esri/renderers/UniqueValueRenderer",
+    "esri/TimeExtent", "esri/dijit/TimeSlider", "esri/plugins/FeatureLayerStatistics", "esri/tasks/query",
+    "dojo/_base/array", "dojo/dom", "dojo/domReady!"
+], function(
+    Map, FeatureLayer, SimpleMarkerSymbol, SimpleFillSymbol, SimpleLineSymbol, Color, UniqueValueRenderer,
+    TimeExtent, TimeSlider, FeatureLayerStatistics, Query,
+    arrayUtils, dom
+) {
+    map = new Map("mapDiv", {
+        basemap: "hybrid",
+        center: [-80.5, 31.5],
+        slider: false,
+        zoom: 8,
+        maxZoom: 10,
+        minZoom: 7
+    });
 
-     renderer = new UniqueValueRenderer(defaultSym, "tag_days");
 
-     var colorViz = {
-         "type": "colorInfo",
-         "field": "Mo",
-         "stops": [{
-             "value": 1,
-             "color": new Color([0, 102, 255, 0.8]),
-         }, {
-             "value": 2,
-             "color": new Color([51, 153, 255, 0.8]),
-         }, {
-             "value": 3,
-             "color": new Color([102, 204, 255, 0.8]),
-         }, {
-             "value": 4,
-             "color": new Color([51, 153, 51, 0.8]),
-         }, {
-             "value": 5,
-             "color": new Color([0, 204, 102, 0.8]),
-         }, {
-             "value": 6,
-             "color": new Color([0, 255, 153, 0.8]),
-         }, {
-             "value": 7,
-             "color": new Color([255, 51, 0, 0.8]),
-         }, {
-             "value": 8,
-             "color": new Color([255, 102, 0, 0.8]),
-         }, {
-             "value": 9,
-             "color": new Color([255, 153, 51, 0.8]),
-         }, {
-             "value": 10,
-             "color": new Color([255, 255, 0, 0.8]),
-         }, {
-             "value": 11,
-             "color": new Color([255, 255, 102, 0.8]),
-         }, {
-             "value": 12,
-             "color": new Color([255, 255, 153, 0.8]),
-         }, ]
-     }
+    //two different feature layers are defined from same source. One is used for display, the other to write stats to the dom. 
+    //used two different feature layers because if you use featureLayerStats on the same as display, the time animation became choppy/delayed. 
 
-     var sizeViz = {
-         "type": "sizeInfo",
-         "field": "tag_days",
-         "minDataValue": 1,
-         "maxDataValue": 60,
-         "valueUnit": "unknown",
+    var speciesLayer = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/marineSpecies/FeatureServer/0", {
+        mode: FeatureLayer.MODE_SNAPSHOT,
+        outFields: ["*"]
+    });
 
-         "minSize": {
-             "type": "sizeInfo",
-             "expression": "view.scale",
-             "stops": [{
-                 "value": 1000,
-                 "size": 12
-             }, {
-                 "value": 500000,
-                 "size": 10
-             }, {
-                 "value": 2000000,
-                 "size": 8
-             }]
-         },
+    speciesLayer.setDefinitionExpression("Species = '" + speciesName + "'")
 
-         "maxSize": {
-             "type": "sizeInfo",
-             "expression": "view.scale",
-             "stops": [{
-                 "value": 1000,
-                 "size": 80
-             }, {
-                 "value": 500000,
-                 "size": 70
-             }, {
-                 "value": 2000000,
-                 "size": 60
-             }]
-         }
-     }
+    var speciesLayerNo = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/marineSpecies/FeatureServer/0", {
+        mode: FeatureLayer.MODE_SNAPSHOT,
+        outFields: ["*"]
+    });
+    speciesLayerNo.setDefinitionExpression("Species = '" + speciesName + "'")
 
-     renderer.setVisualVariables([sizeViz, colorViz]);
+    //layer of just the array locations. only used for display
+    var arrayLayer = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/arrayReceivers/FeatureServer/0");
+    map.addLayer(arrayLayer);
 
-     speciesLayer.setRenderer(renderer);
+    //~~~~~~Styling options~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-     map.addLayer(speciesLayer);
+    var defaultSym = new SimpleMarkerSymbol().setOutline(new SimpleLineSymbol().setWidth(0.3).setColor(new Color([20, 20, 20, 0.7])));
 
-     map.on("layer-add-result", initSlider);
-     
-     function initSlider() {
-         var timeSlider = new TimeSlider({
-             style: "width: 100%;",
-             options: {
-                 excludeDataAtLeadingThumb: true
-             }
-         }, dom.byId("timeSliderDiv"));
+    renderer = new UniqueValueRenderer(defaultSym, "tag_days");
 
-         map.setTimeSlider(timeSlider);
+    var colorViz = {
+        "type": "colorInfo",
+        "field": "Mo",
+        "stops": [{
+            "value": 1,
+            "color": new Color([0, 102, 255, 0.8]),
+        }, {
+            "value": 2,
+            "color": new Color([51, 153, 255, 0.8]),
+        }, {
+            "value": 3,
+            "color": new Color([102, 204, 255, 0.8]),
+        }, {
+            "value": 4,
+            "color": new Color([51, 153, 51, 0.8]),
+        }, {
+            "value": 5,
+            "color": new Color([0, 204, 102, 0.8]),
+        }, {
+            "value": 6,
+            "color": new Color([0, 255, 153, 0.8]),
+        }, {
+            "value": 7,
+            "color": new Color([255, 51, 0, 0.8]),
+        }, {
+            "value": 8,
+            "color": new Color([255, 102, 0, 0.8]),
+        }, {
+            "value": 9,
+            "color": new Color([255, 153, 51, 0.8]),
+        }, {
+            "value": 10,
+            "color": new Color([255, 255, 0, 0.8]),
+        }, {
+            "value": 11,
+            "color": new Color([255, 255, 102, 0.8]),
+        }, {
+            "value": 12,
+            "color": new Color([255, 255, 153, 0.8]),
+        }, ]
+    }
 
-         var timeExtent = new TimeExtent();
-         timeExtent.startTime = new Date("12/01/2013 UTC");
-         timeExtent.endTime = new Date("06/01/2016 UTC");
-         timeSlider.setThumbCount(2);
-         timeSlider.createTimeStopsByTimeInterval(timeExtent, 1, "esriTimeUnitsMonths");
-         timeSlider.setThumbIndexes([0, 1]);
-         timeSlider.setThumbMovingRate(1300);
-         timeSlider.setLoop(true);
-         timeSlider.startup();
+    var sizeViz = {
+        "type": "sizeInfo",
+        "field": "tag_days",
+        "minDataValue": 1,
+        "maxDataValue": 60,
+        "valueUnit": "unknown",
 
-         //add labels for every other time stop
-         var labels = arrayUtils.map(timeSlider.timeStops, function(timeStop, i) {
-             if (i > 0 && (i == 1 || i % 13 == 0)) {
-                 return "Jan<br>" + timeStop.getUTCFullYear();
-             } else {
-                 return ""
-             }
-         });
+        "minSize": {
+            "type": "sizeInfo",
+            "expression": "view.scale",
+            "stops": [{
+                "value": 1000,
+                "size": 12
+            }, {
+                "value": 500000,
+                "size": 10
+            }, {
+                "value": 2000000,
+                "size": 8
+            }]
+        },
 
-         timeSlider.setLabels(labels);
-         
-//NEED A WAY TO GET AUTO DATE AND AUTO STATS FILTERED FOR FIRST TIME INTERVAL BEFORE ANYONE PRESSES PLAY. 
-         dom.byId("date").innerHTML = "Dec<br>2013"
-         
-         var featureLayerStats = new FeatureLayerStatistics({ layer: speciesLayerNo });
-         var featureLayerStatsParams = {field: "tag_days"};
-         
-         timeSlider.on("time-extent-change", function(evt) {
-             var month = evt.endTime.toDateString().split(" ")[1]
-             var year = evt.endTime.toDateString().split(" ")[3]
+        "maxSize": {
+            "type": "sizeInfo",
+            "expression": "view.scale",
+            "stops": [{
+                "value": 1000,
+                "size": 80
+            }, {
+                "value": 500000,
+                "size": 70
+            }, {
+                "value": 2000000,
+                "size": 60
+            }]
+        }
+    }
 
-             dom.byId("date").innerHTML = month + "<br>" + year
-             
-             speciesLayerNo.setTimeDefinition(evt);
-             
-//GET THE FEATURE STATS EACH TIME THAT THE TIME EXTENT CHANGES              
-             featureLayerStats.getFieldStatistics(featureLayerStatsParams).then(function(result){
-                 function total (){
-                     if (result.sum > 0){
-                         return  result.sum
-                     } else {
-                         return "0"
-                     }
-                 };
-                 
-                 dom.byId("total").innerHTML = total();
-                 dom.byId("stations").innerHTML = result.count;
-             });
-         });
-     }
+    renderer.setVisualVariables([sizeViz, colorViz]);
 
- });
+    speciesLayer.setRenderer(renderer);
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~     
+
+    map.addLayer(speciesLayer);
+
+    map.on("layer-add-result", initSlider);
+
+    function initSlider() {
+        var timeSlider = new TimeSlider({
+            style: "width: 100%;",
+            options: {
+                excludeDataAtLeadingThumb: true
+            }
+        }, dom.byId("timeSliderDiv"));
+
+        map.setTimeSlider(timeSlider);
+
+        //GET DATE FROM FEATURE CLASS ATTRIBUTE TABLE... THAT WAY IT DOESN'T NEED TO BE MANUALLY UPDATED         
+        var timeExtent = new TimeExtent();
+        timeExtent.startTime = new Date("12/01/2013 UTC");
+        timeExtent.endTime = new Date("06/01/2016 UTC");
+        timeSlider.setThumbCount(2);
+        timeSlider.createTimeStopsByTimeInterval(timeExtent, 1, "esriTimeUnitsMonths");
+        timeSlider.setThumbIndexes([0, 1]);
+        timeSlider.setThumbMovingRate(1300);
+        timeSlider.setLoop(true);
+        timeSlider.startup();
+
+        var labels = dojo.map(timeSlider.timeStops, function(timeStop, i) {
+            if (timeStop.getUTCMonth() == 0) {
+                return "Jan<br>" + timeStop.getUTCFullYear();
+            } else {
+                return "";
+            }
+        });
+
+        timeSlider.setLabels(labels);
+
+        var featureLayerStats = new FeatureLayerStatistics({
+            layer: speciesLayerNo
+        });
+        var featureLayerStatsParams = {
+            field: "tag_days"
+        };
+
+        timeSlider.on("time-extent-change", function(evt) {
+            var month = evt.endTime.toDateString().split(" ")[1]
+            var year = evt.endTime.toDateString().split(" ")[3]
+
+            dom.byId("date").innerHTML = month + "<br>" + year
+
+            speciesLayerNo.setTimeDefinition(evt);
+
+            //get the feature stats each time the time slider changes            
+            featureLayerStats.getFieldStatistics(featureLayerStatsParams).then(function(result) {
+                function total() {
+                    if (result.sum > 0) {
+                        return result.sum
+                    } else {
+                        return "0"
+                    }
+                };
+
+                dom.byId("total").innerHTML = total();
+                dom.byId("stations").innerHTML = result.count;
+            });
+        });
+
+        //SEE HOW THIS PERFORMS... MOVE THE TIME FORWARD THEN BACK SO THAT IT POPULATES THE STATS BOXES FOR THE FIRST TIME STOP        
+        timeSlider.next();
+        timeSlider.previous();
+
+    }
+
+});
