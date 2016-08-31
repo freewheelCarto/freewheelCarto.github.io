@@ -10,42 +10,51 @@ UPPER CASE COMMENTS INDICATE IMPROVEMENTS OR CHANGES THAT NEED TO MADE
 
 var map;
 require([
-    "esri/map", "esri/layers/FeatureLayer", "esri/symbols/SimpleMarkerSymbol", "esri/symbols/SimpleFillSymbol",
+    "esri/map", "esri/layers/FeatureLayer", "dojo/dom", "esri/symbols/SimpleMarkerSymbol", "esri/symbols/SimpleFillSymbol",
     "esri/symbols/SimpleLineSymbol",
     "esri/Color",
     "esri/renderers/UniqueValueRenderer",
-    "esri/TimeExtent", "esri/dijit/TimeSlider", "esri/plugins/FeatureLayerStatistics", "esri/tasks/query",
-    "dojo/_base/array", "dojo/dom", "dojo/domReady!"
+    "esri/TimeExtent", "esri/dijit/TimeSlider", "esri/tasks/query",
+    "dojo/_base/array", "dojo/on", "dojo/domReady!"
 ], function(
-    Map, FeatureLayer, SimpleMarkerSymbol, SimpleFillSymbol, SimpleLineSymbol, Color, UniqueValueRenderer,
+    Map, FeatureLayer, dom, SimpleMarkerSymbol, SimpleFillSymbol, SimpleLineSymbol, Color, UniqueValueRenderer,
     TimeExtent, TimeSlider, FeatureLayerStatistics, Query,
-    arrayUtils, dom
+    arrayUtils, on
 ) {
     map = new Map("mapDiv", {
         basemap: "hybrid",
-        center: [-80.5, 31.5],
-        slider: false,
+        center: [-80.5, 32.5],
+        slider: true,
         zoom: 8,
         maxZoom: 10,
         minZoom: 7
     });
 
-
-    //two different feature layers are defined from same source. One is used for display, the other to write stats to the dom. 
-    //used two different feature layers because if you use featureLayerStats on the same as display, the time animation became choppy/delayed. 
-
     var speciesLayer = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/marineSpecies/FeatureServer/0", {
         mode: FeatureLayer.MODE_SNAPSHOT,
         outFields: ["*"]
     });
+    
+    var sturgeon = [
+        {display: "Atlantic sturgeon", value: "Atlantic sturgeon" }];
 
-    speciesLayer.setDefinitionExpression("Species = '" + speciesName + "'")
-
-    var speciesLayerNo = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/marineSpecies/FeatureServer/0", {
-        mode: FeatureLayer.MODE_SNAPSHOT,
-        outFields: ["*"]
-    });
-    speciesLayerNo.setDefinitionExpression("Species = '" + speciesName + "'")
+    var sharks = [
+        {display: "Tiger shark", value: "Tiger shark" },
+        {display: "Finetooth shark", value: "Finetooth shark" },
+        {display: "White shark", value: "White shark" },
+        {display: "Blacknose shark", value: "Blacknose shark" },
+        {display: "Lemon shark", value: "Lemon shark" },
+        {display: "Sand tiger shark", value: "Sand tiger shark" },
+        {display: "Blacktip shark", value: "Blacktip shark" },
+        {display: "Great hammerhead shark", value: "Great hammerhead shark" },
+        {display: "Bonnethead shark", value: "Bonnethead shark" },
+        {display: "Cownose shark", value: "Cownose shark" }
+        ];
+    var turtles = [
+        {display: "Loggerhead sea turtle", value: "Loggerhead sea turtle" }];
+    
+    var other = [
+        {display: "Red drum", value: "Red drum" }];
 
     //layer of just the array locations. only used for display
     var arrayLayer = new FeatureLayer("http://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/arrayReceivers/FeatureServer/0");
@@ -159,8 +168,8 @@ require([
 
         //GET DATE FROM FEATURE CLASS ATTRIBUTE TABLE... THAT WAY IT DOESN'T NEED TO BE MANUALLY UPDATED         
         var timeExtent = new TimeExtent();
-        timeExtent.startTime = new Date("12/01/2013 UTC");
-        timeExtent.endTime = new Date("06/01/2016 UTC");
+        timeExtent.startTime = new Date("12/01/2013");
+        timeExtent.endTime = new Date("06/01/2016");
         timeSlider.setThumbCount(2);
         timeSlider.createTimeStopsByTimeInterval(timeExtent, 1, "esriTimeUnitsMonths");
         timeSlider.setThumbIndexes([0, 1]);
@@ -178,34 +187,21 @@ require([
 
         timeSlider.setLabels(labels);
 
-        var featureLayerStats = new FeatureLayerStatistics({
-            layer: speciesLayerNo
-        });
-        var featureLayerStatsParams = {
-            field: "tag_days"
-        };
 
         timeSlider.on("time-extent-change", function(evt) {
-            var month = evt.endTime.toDateString().split(" ")[1]
-            var year = evt.endTime.toDateString().split(" ")[3]
+            
+            var smonth = evt.startTime.toDateString().split(" ")[1]
+            var sday = evt.startTime.toDateString().split(" ")[2]
+            var syear = evt.startTime.toDateString().split(" ")[3]
 
-            dom.byId("date").innerHTML = month + "<br>" + year
+            dom.byId("startdate").innerHTML = smonth + " " + sday + "<br>" + syear
+            
+            var emonth = evt.endTime.toDateString().split(" ")[1]
+            var eday = evt.endTime.toDateString().split(" ")[2]
+            var eyear = evt.endTime.toDateString().split(" ")[3]
+            
+            dom.byId("enddate").innerHTML = emonth + " " + eday + "<br>" + eyear
 
-            speciesLayerNo.setTimeDefinition(evt);
-
-            //get the feature stats each time the time slider changes            
-            featureLayerStats.getFieldStatistics(featureLayerStatsParams).then(function(result) {
-                function total() {
-                    if (result.sum > 0) {
-                        return result.sum
-                    } else {
-                        return "0"
-                    }
-                };
-
-                dom.byId("total").innerHTML = total();
-                dom.byId("stations").innerHTML = result.count;
-            });
         });
 
         //SEE HOW THIS PERFORMS... MOVE THE TIME FORWARD THEN BACK SO THAT IT POPULATES THE STATS BOXES FOR THE FIRST TIME STOP        
@@ -213,5 +209,37 @@ require([
         timeSlider.previous();
 
     }
-
+    
+//This stuff is used to populate the dropdowns and filter out the species.        
+    $("#species").change(function(){
+        speciesLayer.setDefinitionExpression("Species = '" + this.value + "'")    
+    });
+    
+    function list(array){
+        $("#species").html("");
+        $(array).each(function(i){
+            $("#species").append('<option value="'+array[i].value+'">'+array[i].display+'</option>');
+        });
+        $("#species").trigger("change");
+    }
+    
+    list(sturgeon);
+    
+    $("#taxa").change(function(){
+        var taxa = this.value;
+        switch(taxa){
+            case 'sturgeon':
+                list(sturgeon);
+                break;
+            case 'sharks':
+                list(sharks);
+                break;
+            case 'turtles':
+                list(turtles);
+                break;
+            case 'other':
+                list(other);
+        }
+    });
+    
 });
