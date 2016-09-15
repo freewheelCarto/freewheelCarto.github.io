@@ -115,12 +115,11 @@ header{
 #backup:hover {box-shadow:0 0 0 0;}
 
 #hero,
-#page-header{
-	padding:10px 0;
-}
 
 #logo_int {
     width:100%;
+    max-width:900px;
+    margin:auto;
 }
 
 
@@ -135,7 +134,7 @@ header{
 }
 
 #content {  
-	margin:40px 0;
+	margin:10px 0;
 }
 
 aside { 
@@ -157,13 +156,14 @@ p{ margin:0;}
 
 .terms {
     display:inline-block;
-    margin: 0.3em;
+    margin:0 0.3em;
     text-align: center;
     min-width:120px;
-    font-size:1.5em;
+    line-height: 0.5em;
     border-bottom: 3px solid #00cc99;
     padding:0 10px;
 }
+#page-header .wrapper
 
 .inlink{color:#ddd}
 
