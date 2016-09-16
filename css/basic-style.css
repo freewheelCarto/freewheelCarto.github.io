@@ -104,13 +104,14 @@ header{
     position:fixed;
     bottom:20px;
     right:20px;
-    height:40px;
-    width:40px;
+    height:60px;
+    width:60px;
     border:2px solid orange;
     border-radius:2px;
     background-color:orange;
     cursor: pointer;
     box-shadow: 2px 2px 5px rgba(20,20,20,0.5);
+    display: none;
 }
 #backup:hover {box-shadow:0 0 0 0;}
 

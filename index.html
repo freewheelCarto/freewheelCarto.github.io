@@ -70,7 +70,8 @@
     <section id="content" class="wide-content">
     
     <h2 class="heads" id="proj">--------- Maps ---------</h2>
-                <div class="row">	
+        
+        <div class="row">	
 
                 <div class="grid_4">
                     <a href="./images/FloodPrecipMapMedium.jpg" data-lightbox="flood" data-title="October 2015 extreme rainfall and flooding. <a href='./images/FloodPrecipMapMedium.jpg' style='color:#ddd'> Click for full image.</a>">
@@ -103,7 +104,10 @@
                     </a>
                     <a href="./images/upstateFull.JPG" data-lightbox="upstate" data-title="Full Map."></a>
                     <a href="./images/upstateLegend.JPG" data-lightbox="upstate" data-title=""></a>
-                </div>  
+                </div>
+                
+        </div>
+        <div class="row">
                  
                 <div class="grid_4">
                     <a href="./images/ghsLayout.png" data-lightbox="ghs" data-title="Different lines on the landscape - road, water, and terrain. <a href='./images/ghsLayout.png' style='color:#ddd'>Click for full image.</a>">
@@ -135,6 +139,8 @@
                     <p class='desc'>Tools: QGIS, Inkscape</p>    
                     </a>
                 </div>
+        </div>
+        <div class="row">
                 
                 <div class="grid_4">
                     <a href="./images/erocktrails_lores.jpg" data-lightbox="Enchanted Rock" data-title="Enchanted Rock State Natural Area recreation map. <a href='./images/erock.png' style='color:#ddd'>Click for full image.</a>">
@@ -154,7 +160,7 @@
                     </a>
                 </div>    
                     
-                </div> 
+            </div> 
             <h2 class="heads" id="proj">--------- Web ---------</h2>
                 <div class="row" id="web">
                     
@@ -183,7 +189,10 @@
                     <p>SCDNR Marine Resources Div</p>
                     <p class='desc'>Tools: ArcGIS, ArcGIS JavaScript API, JQuery</p>     
                     </a>
-                </div>   
+                </div>
+                
+                </div>
+                <div class="row">
                     
                 <div class="grid_4">
                     <a href="./web/bikesodacity/index.htm">
@@ -222,7 +231,15 @@
 </div><!-- #end div #main .wrapper -->
         
 <script>
-    $(document).ready(function(){
+$(document).ready(function(){
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('#backup:hidden').stop(true, true).fadeIn();
+        } else {
+            $('#backup').stop(true, true).fadeOut();
+        }
+    });
+    
 	$('a[href^="#"]').on('click',function (e) {
 	    e.preventDefault();
 

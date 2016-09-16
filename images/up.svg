@@ -15,7 +15,7 @@
    version="1.1"
    inkscape:version="0.48.5 r10040"
    sodipodi:docname="up.svg"
-   inkscape:export-filename="C:\Users\arringtont\Documents\GitHub\website\images\down.png"
+   inkscape:export-filename="C:\Users\arringtont\Documents\GitHub\freewheelCarto.github.io\images\up.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
   <defs
@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="19.582831"
-     inkscape:cy="48.157751"
+     inkscape:zoom="3.959798"
+     inkscape:cx="54.905571"
+     inkscape:cy="62.458675"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -37,11 +37,18 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1920"
-     inkscape:window-height="1005"
-     inkscape:window-x="-9"
+     inkscape:window-width="1680"
+     inkscape:window-height="1023"
+     inkscape:window-x="1671"
      inkscape:window-y="-9"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       orientation="1,0"
+       position="48.234784,103.2881"
+       id="guide3757" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -50,7 +57,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -60,13 +67,9 @@
      id="layer1"
      transform="translate(-1.1785714,-936.36218)">
     <path
-       style="fill:none;stroke:#454545;stroke-width:14;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M 8.7857143,967.50503 50.035715,1004.8263 93.785714,968.04073"
-       id="path2985"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccc"
-       inkscape:export-filename="C:\Users\arringtont\Documents\GitHub\website\images\up.png"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300" />
+       style="font-size:90px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#464646;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       d="M 48.46875 3.28125 L 29.3125 41.78125 L 36.09375 41.78125 L 43.9375 52.40625 L 48.46875 47.46875 L 67.78125 67.15625 L 67.78125 57.96875 C 67.781201 54.6864 67.548488 52.16662 67.125 50.40625 C 66.701416 48.64598 66.106582 47.45741 65.3125 46.875 C 64.571266 46.3721 63.337112 45.88278 61.65625 45.40625 C 59.975301 44.92983 58.717253 44.67799 57.84375 44.625 L 57.84375 41.78125 L 69.03125 41.78125 L 48.46875 3.28125 z M 69.03125 41.78125 L 72.625 48.5 C 72.978671 47.596973 73.429628 46.886548 74.03125 46.46875 C 74.692969 46.04526 75.808376 45.64713 77.34375 45.25 C 78.879006 44.853 80.008751 44.6515 80.75 44.625 L 80.75 41.78125 L 69.03125 41.78125 z M 72.625 48.5 C 72.418433 49.027427 72.246983 49.588294 72.125 50.28125 C 71.79406 52.16075 71.624947 54.5522 71.625 57.4375 L 71.625 71.0625 L 100.25 100.25 L 72.625 48.5 z M 71.625 71.0625 L 67.78125 67.15625 L 67.78125 84.75 L 43.9375 52.40625 L 38.375 58.46875 L 68.15625 98.6875 L 71.625 98.6875 L 71.625 71.0625 z M 38.375 58.46875 L 34 52.59375 L 34 63.25 L 38.375 58.46875 z M 34 63.25 L 30.15625 67.4375 L 30.15625 82.09375 C 30.156239 85.77325 30.000361 88.38405 29.65625 89.90625 C 29.312117 91.42835 28.676475 92.53995 27.75 93.28125 C 27.326456 93.65185 26.256635 94.06795 24.5625 94.53125 C 22.868352 94.99445 21.652214 95.2595 20.9375 95.3125 L 20.9375 98.125 L 44.0625 98.125 L 44.0625 95.3125 C 43.453644 95.2861 42.187138 95.03425 40.28125 94.53125 C 38.375322 94.02835 37.140064 93.48865 36.53125 92.90625 C 35.684163 92.16495 35.035284 90.90345 34.625 89.15625 C 34.214685 87.40925 33.999985 84.91225 34 81.65625 L 34 63.25 z M 30.15625 67.4375 L 30.15625 54.34375 C 30.156239 53.12612 29.954776 51.90521 29.53125 50.6875 C 29.107705 49.46989 28.527207 48.53683 27.8125 47.875 C 27.490419 47.579779 27.117935 47.297757 26.71875 47.03125 L 0.5 99.75 L 30.15625 67.4375 z M 26.71875 47.03125 L 29.3125 41.78125 L 20 41.78125 L 20 44.625 C 21.005895 44.67799 22.309532 45.003 23.9375 45.625 C 25.015244 46.036864 25.936839 46.509225 26.71875 47.03125 z "
+       transform="translate(1.1785714,936.36218)"
+       id="path3762" />
   </g>
 </svg>
