@@ -63,6 +63,13 @@ a:active,
 a:hover{color:#444;}
 a:hover{ text-decoration:none;}
 
+.grid_4{
+    transition:background 50s;
+}
+
+.grid_4:hover{
+    background-color:aqua;
+}
 
 /* Box sizing. Awesome thing. Read about it here: http://www.w3schools.com/cssref/css3_pr_box-sizing.asp */
 *{	box-sizing:border-box;
@@ -77,6 +84,11 @@ a:hover{ text-decoration:none;}
     margin:1% 1em;
     font-size:1.5em;
     min-width: 100px;
+    background-color:#66cc99;
+    transition: background 1s;
+}
+#topnav ul li:hover{
+    background-color:aqua;
 }
 
 /* structure */   
