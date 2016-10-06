@@ -64,7 +64,7 @@ a:hover{color:#444;}
 a:hover{ text-decoration:none;}
 
 .grid_4{
-    transition:background 50s;
+    transition:background 30s;
 }
 
 .grid_4:hover{
