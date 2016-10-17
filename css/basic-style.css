@@ -135,6 +135,7 @@ header{
     margin:auto;
 }
 
+#logo-small{display: none;}
 
 #hero h1{ 
 	line-height:1.2em;
@@ -284,6 +285,14 @@ a.buttonlink{
 }
 
 
+@media only screen and (max-width:400px){
+    #logo-big{
+            display:none;
+    }
+    #logo-small{
+        display:block;
+    }
+}
 
 /*
 LARGER MOBILE DEVICES
@@ -307,36 +316,36 @@ But I think that some more breathing space is good:)
 */
 @media only screen and (min-width: 600px) {
 
-.wrapper{
-	max-width: 1200px; 
-	margin: .75em auto;
-}
+    .wrapper{
+        max-width: 1200px; 
+        margin: .75em auto;
+    }
 
-#banner_int{ 
-	float:left; 
-	text-align:left;
-	margin-bottom:0px;
-    width:95%;
-    overflow:hidden;
-}
-    
-header{
-	padding:0;
-}
-#content {  
-	float:left;
-	width:65%;
-}
-#content.wide-content{
-	float:none;
-	width:100%;
-}
-    
+    #banner_int{ 
+        float:left; 
+        text-align:left;
+        margin-bottom:0px;
+        width:95%;
+        overflow:hidden;
+    }   
 
-aside { 
-	float:right;
-	width:30%;
-}
+    header{
+        padding:0;
+    }
+    #content {  
+        float:left;
+        width:65%;
+    }
+    #content.wide-content{
+        float:none;
+        width:100%;
+    }
+
+
+    aside { 
+        float:right;
+        width:30%;
+    }
 
 /*GRID*/
 /*
