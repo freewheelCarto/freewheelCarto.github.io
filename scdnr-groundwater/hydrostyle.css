@@ -1,0 +1,333 @@
+/* CSS Document used in groundwater.html, location_new.psp
+   by F. Tian, April 6, 2011*/
+
+body {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  font-size: 76%;
+  background-color:#ABB7C2;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+#container { /* include header and footer */
+	width: 800px;  
+	background: #FFFFFF url(image/drop_shadow.gif) repeat-y;
+	margin: 0 auto;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	padding-right: 8px;
+	padding-left: 8px;
+}
+#header {
+	width: 800px;
+	background: #000000 url(image/BannerGroundwell.gif) no-repeat; /* the banner includes DNR logo */
+	padding: 0 0px;  
+	height: 95px;
+}
+#header .sandbag { /* transparent overlay on top of DNR logo */
+	float:left;
+	clear:left;
+	width:100px;
+	height: 90px;
+}
+#housekeep { /* This is CSS for the search box at the top right corner */
+	float: right;
+	top: 30px;
+	font-size: .85em;
+	color: #CCCCCC;
+	margin: 2px;
+	margin-right: 6px;
+	margin-top: 6px;
+}
+#housekeep a {
+	color: #FFFFFF;
+	text-decoration: underline;
+	font-weight: normal;
+}
+#housekeep a:hover {
+	text-decoration: underline;
+	color: #8a3B25;
+}
+#main { /* groundwater.html only */
+	position:relative;
+	top: 0px;
+    background-color: #FFFFFF;
+    margin: 0px;
+    padding: 0px;
+	text-align:left;
+} 
+#main #leftcolumn { /* div for table of content */
+    float: left; 
+	width: 22em;
+	background-color:  #FFFFFF; 
+    padding: 15px 0;
+} 
+#main  #searchnav { /* table of content */
+	background-color: #E3E0D4;
+	border: 1px solid #4A5231;
+	width: 210px;
+	padding-bottom: 15px;
+	margin-top: 3px;
+	margin-bottom: 5px;
+	margin-left: 20px;
+	clear: right;
+}
+#main    #searchnav .header { /* table header */
+	background-color: #4A5231;
+	padding-top: 3px;
+	padding-left: 3px;
+	padding-bottom: 3px;
+	display: block;
+	color: #EEE6CA;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #1C4C7A;
+	letter-spacing: .05em;
+}
+#main   #searchnav ul {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	display: block;
+	/* white-space:nowrap; */
+}
+#main   #searchnav li {
+	font-size: 1em;
+	color:#000000;
+	font-weight: bold;
+	padding-bottom: 0px;
+	border-bottom: 1px solid #CCCCCC;
+	line-height: 1.5em;
+}
+#main     #searchnav   li  a {
+	color:#000000;
+	display: block;
+	padding-right: 5px;
+	padding-left: 7px;
+	padding-top: 3px;
+	padding-bottom: 2px;
+	text-decoration:none;
+}
+#main   #searchnav  li a:hover {
+	color:#000000;
+	background-color: #B4BD91;
+}
+#main  #searchnav   li a:visited {
+	color:#555555;
+}
+#content { /* groundwater.html only */
+  margin: 1em 1em 0 1em;
+  background-color:#FFFFFF;
+  padding: 1px 5px;
+  text-align: justify;
+}
+.clearfloat { /* this class should be placed right before footer div */
+  clear:both;
+  height:0;
+  font-size: 1px;
+  line-height: 0px;
+}	
+#footer {
+	padding: 5px 0px 0px 0px; 
+	background:#B4BD91;
+	border-bottom: 1px solid #333333;
+	border-top: 1px solid #4A5231;
+	text-align: center;
+}
+#footer p {
+	margin: 0; 
+	padding: 7px 0px 10px; 
+	font-size: .90em;
+}
+
+/* folowing CSS used in location_new.psp (wellinfo procedure) */
+
+h3 {
+    text-align:center;
+    background-color:#FFFFFF;
+    margin:0px;
+    padding: 10px 0px;     
+}
+#graph {
+	position: relative;
+	width: 780px;
+	height: 420px; /* needed due to the floating components */
+	margin-left: 10px;
+	border-top: solid 1px #000000;
+	border-bottom: solid 1px #000000;
+}
+#ctyname {
+	padding-left: 10px;
+	margin-left: 10px;
+	float:left;
+	width: 260px;
+	background-color:#ffffff;
+	border: solid 1px #000000;
+}
+caption {
+	padding-top: 70px;
+	padding-bottom: 20px;
+	font: 14px arial;
+}
+#ctyname td {
+	text-align: left;
+	border: 0px;
+}
+#ctyname a {
+	color: #000000;
+	font: 12px "courier new";
+	text-decoration: none;
+}
+#ctyname a:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+#ctyimg {
+	float: right;
+}
+#aquifer {
+	position: relative;
+	top:10px;
+	width: 780px;
+	margin-left: 10px;
+	background-color:#ffffff;
+	text-align: center;
+	border: solid 1px #000000;
+}
+#aquifer h3 {
+	padding-top:10px;
+}
+#aquifer td {
+	width: 120px;
+	text-align: left;
+}
+#aquifer a {
+	color: #000000;
+	font: 14px arial;
+	text-decoration: none;
+}
+#aquifer a:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+
+/* folowing CSS used in ctywellsite.psp (ctywellinfo procedure) */
+#sel_cty {
+	position: relative;
+	top: 0px;
+	left: 200px;
+	width: 400px;
+	border: solid 1px #000000;
+}
+#showinfo {
+	position: relative;
+	top:40px;
+	left: -10px;
+	width:800px;
+	height:180px;
+	overflow:auto;
+}
+#showinfo a {
+	color: #000000;
+	text-decoration: none;
+}
+#showinfo a:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+
+#content h4 {
+    border-bottom:1px solid #ccc;
+    padding-top:15px;
+}
+
+/*leaflet*/
+#map{
+    height:400px;
+    width:100%;
+}
+.cluster{
+    border-radius:100%;
+    text-align: center;
+    background-color:rgba(238, 242, 140,0.8);
+}
+
+/*dygraph*/
+#chart {
+    height:200px;
+    margin-bottom: 20px;
+}
+.dygraph-title{
+    font-size:16px;
+}
+#datefilter{
+    padding:7px 0;
+}
+#datefilter label{
+    font-weight: normal;
+}
+.dygraph-legend{
+    top:-30px !important;
+    width:300px !important;
+}
+
+/*table on map displaying well info*/
+#table{
+    position: absolute;
+    top:0;
+    left:0;
+    width:150px;
+    height:100%;
+    z-index: 10000;
+    background-color:rgba(50,50,50,0.7);
+    padding:0 5px;
+    color:#fff;
+}
+#table table td, #table table th {
+    padding:3px;
+    height:24px;
+}
+#table table td{
+    border-bottom: 1px solid #ccc;
+}
+#legend{
+    width:100%;
+    text-align: center;
+    padding:5px 0;
+    margin:5px 0;
+}
+#legend img {
+    width:100%;
+}
+#getdata{
+    margin: 15px 5px;
+    background:none;
+    color:#555;
+    border-color:#555;
+}
+
+/*FAQ droptown divs*/
+.closed {
+    background:url('http://www.dnr.sc.gov/water/waterplan/assets/rightarrow.png') no-repeat;
+    background-position:90% center;
+}
+
+.open {
+    background:url('http://www.dnr.sc.gov/water/waterplan/assets/downarrow.png') no-repeat;
+    background-position:90% center;
+}
+.question{padding:5px;}
+.question:hover{cursor: pointer;background-color:#eee;border-radius:4px;}
+.answer{
+    display:none;
+    padding:8px;
+    background-color:#e3f0ff;
+}
+#wellgraph {
+    width:90%;
+    padding:10px;
+    height:auto;
+    margin:10px auto;
+}
