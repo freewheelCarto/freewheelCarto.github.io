@@ -64,11 +64,12 @@ a:hover{color:#444;}
 a:hover{ text-decoration:none;}
 
 .grid_4{
-    transition:background 30s;
+    transition:background 8s;
 }
 
 .grid_4:hover{
     background-color:aqua;
+    transition:background 20s;
 }
 
 /* Box sizing. Awesome thing. Read about it here: http://www.w3schools.com/cssref/css3_pr_box-sizing.asp */
@@ -268,6 +269,7 @@ a.buttonlink{
 	color:#fff;
 }
 
+#yo{color:orange;}
 
 
 /* Contain floats*/ 

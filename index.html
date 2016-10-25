@@ -22,7 +22,7 @@
 
 <link rel="stylesheet" href="./css/normalize.css">
 <link rel="stylesheet" href="./css/basic-style.css">
-<link href="./css/lightbox.css" rel="stylesheet">
+<link rel="stylesheet" href="./css/swipebox.min.css">
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
 
 <!-- end CSS-->
@@ -31,7 +31,7 @@
 <script src="./js/libs/modernizr-2.6.2.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
- 
+<script src="js/jquery.swipebox.min.js"></script> 
 
 <!-- end JS-->
 
@@ -67,19 +67,19 @@
         <div class="row">	
 
                 <div class="grid_4">
-                    <a href="./images/FloodPrecipMapMedium.jpg" data-lightbox="flood" data-title="October 2015 extreme rainfall and flooding. <a href='./images/FloodPrecipMapMedium.jpg' style='color:#ddd'> Click for full image.</a>">
+                    <a href="./images/FloodPrecipMapMedium.jpg" class="swipebox" rel="flood" title="October 2015 extreme rainfall and flooding. <a href='./images/FloodPrecipMapMedium.jpg' style='color:#ddd'> Click for full image.</a>">
                     <h3 class="first-header">Extreme Rainfall and Flooding</h3>
                     <img src="./images/FloodPrecipMapSmall.jpg" alt="rivers or color intro image"/>
                     <p>October 2015 extreme rainfall.</p>
                     <p class='desc'>Tools: ArcGIS, QGIS, Inkscape, Gimp</p>    
                     </a>
-                    <a href="./images/floodLegend.JPG" data-lightbox="flood" data-title="Flooding map legend."></a>
-                    <a href="./images/floodZoom.JPG" data-lightbox="flood" data-title="Flooding detail."></a>
-                    <a href="./images/floodTimeline.jpg" data-lightbox="flood" data-title="Flooding timeline."></a>
+                    <a class="swipebox" href="./images/floodLegend.JPG" rel="flood" title="Flooding map legend."></a>
+                    <a class="swipebox" href="./images/floodZoom.JPG" rel="flood" title="Flooding detail."></a>
+                    <a class="swipebox" href="./images/floodTimeline.jpg" rel="flood" title="Flooding timeline."></a>
                 </div>
                     
                 <div class="grid_4">
-                    <a href="./images/rivercolors.png" data-lightbox="Rivers of Color" data-title="Mapping the Rivers and Streams of the US named for colors. <a href='./images/rivercolors.png' style='color:#ddd'>Click for full image.</a>">
+                    <a class="swipebox" href="./images/rivercolors.png" rel="Rivers of Color" title="Mapping the Rivers and Streams of the US named for colors. <a href='./images/rivercolors.png' style='color:#ddd'>Click for full image.</a>">
                     <h3 class="first-header">Rivers of Color</h3>
                     <img src="./images/rivs.jpg" alt="rivers or color intro image"/>
                     <p>Rivers of the US named after colors.</p>
@@ -88,31 +88,31 @@
                 </div>
                     
                 <div class="grid_4">
-                    <a href="./images/ihs1.JPG" data-lightbox="ihs" data-title="Idaho Hot Springs bikepacking section.">
+                    <a class="swipebox" href="./images/ihs1.JPG" rel="ihs" title="Idaho Hot Springs bikepacking section.">
 
         	        <h3 class="first-header">Idaho Bikepacking</h3>
                     <img src="./images/ihsSmall.jpg">
                     <p>Trip summary map.</p>
                     <p class='desc'>Tools: Ink and Watercolor</p>    
                     </a>
-                    <a href="./images/ihs3.JPG" data-lightbox="ihs" data-title=""></a>
-                    <a href="./images/ihs4.JPG" data-lightbox="ihs" data-title=""></a>
+                    <a class="swipebox" href="./images/ihs3.JPG" rel="ihs" title=""></a>
+                    <a class="swipebox" href="./images/ihs4.JPG" rel="ihs" title=""></a>
                 </div>
                 
         </div>
         <div class="row">
                  
                 <div class="grid_4">
-                    <a href="./images/ghsSmall.png" data-lightbox="ghs" data-title="Different lines on the landscape - road, water, and terrain.">
+                    <a class="swipebox" href="./images/ghsSmall.png" rel="ghs" title="Different lines on the landscape - road, water, and terrain.">
 
         	        <h3 class="first-header">Granite Hot Springs</h3>
                     <img src="./images/logo.jpg">
                     <p>Wyoming bike ride.</p>
                     <p class='desc'>Tools: Pen, paper</p>    
                     </a>
-                    <a href="./images/ghsCreek.png" data-lightbox="ghs" data-title="Detail of the creek."></a>
-                    <a href="./images/ghsRoad.png" data-lightbox="ghs" data-title="Detail of the road."></a>
-                    <a href="./images/ghsTerrain.png" data-lightbox="ghs" data-title="Detail of the terrain."></a>
+                    <a class="swipebox" href="./images/ghsCreek.png" rel="ghs" title="Detail of the creek."></a>
+                    <a class="swipebox" href="./images/ghsRoad.png" rel="ghs" title="Detail of the road."></a>
+                    <a class="swipebox" href="./images/ghsTerrain.png" rel="ghs" title="Detail of the terrain."></a>
                 </div>     
                 
                 <div class="grid_4">
@@ -136,19 +136,19 @@
         <div class="row">
                 
                 <div class="grid_4">
-                    <a href="./images/upstateZoom.JPG" data-lightbox="upstate" data-title="Map of Upstate, SC. For in-laws' lake house.">
+                    <a class="swipebox" href="./images/upstateZoom.JPG" rel="upstate" title="Map of Upstate, SC. For in-laws' lake house.">
 
         	        <h3 class="first-header">Upstate South Carolina</h3>
                     <img src="./images/upstateZoom.JPG">
                     <p>Recreation reference map.</p>
                     <p class='desc'>Tools: QGIS, Inkscape, Gimp</p>    
                     </a>
-                    <a href="./images/upstateFull.JPG" data-lightbox="upstate" data-title="Full Map."></a>
-                    <a href="./images/upstateLegend.JPG" data-lightbox="upstate" data-title=""></a>
+                    <a class="swipebox" href="./images/upstateFull.JPG" rel="upstate" title="Full Map."></a>
+                    <a class="swipebox" href="./images/upstateLegend.JPG" rel="upstate" title=""></a>
                 </div>
             
                 <div class="grid_4">
-                    <a href="./images/erocktrails_lores.jpg" data-lightbox="Enchanted Rock" data-title="Enchanted Rock State Natural Area recreation map. <a href='./images/erock.png' style='color:#ddd'>Click for full image.</a>">
+                    <a class="swipebox" href="./images/erocktrails_lores.jpg" rel="Enchanted Rock" title="Enchanted Rock State Natural Area recreation map. <a href='./images/erock.png' style='color:#ddd'>Click for full image.</a>">
                     <h3 class="first-header">E-Rock Trails</h3>
                     <img src="./images/erockthumb.jpg" alt="erock trails intro image"/>
                     <p>Simple trail guide for E-Rock, Texas.</p>
@@ -157,7 +157,7 @@
                 </div>    
                     
                 <div class="grid_4">
-                    <a href="./images/realgdp2014.png" data-lightbox="cartogram" data-title="Non-contiguous cartogram of real GDP by state, for Fixr.com" >
+                    <a class="swipebox" href="./images/realgdp2014.png" rel="cartogram" title="Non-contiguous cartogram of real GDP by state, for Fixr.com" >
                     <h3 class="first-header">U.S. GDP by State</h3>
                     <img src="images/realgdpthumb.png" alt="gdp by state intro">
                     <p>Cartogram for <a href="http://fixr.com">Fixr.com</a></p>
@@ -236,7 +236,7 @@
                 Want to get at me?  <a style="background-color:orange;" href="mailto:freewheel.carto@gmail.com?Subject=Maps">   Send me an email</a>  if you are interested in mapping, GIS, cartography work.
             </p>
         
-            <a  href="./images/geologyFull.jpg" data-lightbox="geology" data-title="photo:  <a href='http://michaelfriberg.com'>Michael Friberg</a>"><img src="images/geology.jpg" alt="utah photo"></a>
+            <a class="swipebox"  href="./images/geologyFull.jpg" rel="geology" title="photo:  <a id='yo' href='http://michaelfriberg.com'>Michael Friberg</a>"><img src="images/geology.jpg" alt="utah photo"></a>
         
     </section><!-- #end content area -->
     
@@ -265,10 +265,21 @@ $(document).ready(function(){
 	    }, 900, 'swing', function () {
 	        window.location.hash = target;
 	    });
-	});
+	});    
 });
+    
 </script>
+<script type="text/javascript">
+;( function( $ ) {
 
+	$( '.swipebox' ).swipebox( {
+		loopAtEnd: true // true will return to the first image after the last image is reached
+	} );
+
+} )( jQuery );
+</script>
+    
+    
 <!-- footer area -->    
 <footer>
 	<div id="colophon" class="wrapper clearfix">
@@ -282,11 +293,9 @@ $(document).ready(function(){
     
 </footer><!-- #end footer area --> 
 
-
 <!-- jQuery -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.9.0.min.js">\x3C/script>')</script>
-<script src="./js/lightbox.min.js"></script>   
 
 </body>
 </html>
