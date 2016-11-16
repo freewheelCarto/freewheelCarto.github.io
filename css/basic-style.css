@@ -110,7 +110,7 @@ header{
 }
 
 #backup {
-    background-image: url('../images/up.png');
+    background-image: url('../images/up.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -119,9 +119,9 @@ header{
     right:20px;
     height:60px;
     width:60px;
-    border:2px solid orange;
+    border:2px solid #FFA500;
     border-radius:2px;
-    background-color:orange;
+    background-color:#FFA500;
     cursor: pointer;
     box-shadow: 2px 2px 5px rgba(20,20,20,0.5);
     display: none;
