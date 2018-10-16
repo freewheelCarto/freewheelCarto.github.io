@@ -15,7 +15,7 @@ BASE (MOBILE) SIZE
 
 /* typography */
 body{
-	color:#222;
+	/*color:#222;*/
 	font-family:'Merriweather Sans', Arial, Helvetica, sans-serif; 
 	font-size:1em;
 	line-height:1.4em; 
@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6,#topnav{
 	font-weight:normal;
 	font-family:'Merriweather', serif; 
 	line-height:1.5em;
-	margin:.45em 0;
+	margin:.6em 0;
 	padding:0;
 } 
 
@@ -40,22 +40,48 @@ h1, h2, h3, h4, h5, h6,#topnav{
     text-align: center;
 }
 
+.first-header{
+    color:rgba(255,255,255,0.7);
+    margin: 0;
+    width:80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-decoration: underline;
+    text-shadow:2px 2px 4px rgba(20,20,20, 0.7);
+}
+
 .desc {font-size:0.8em;}
+
+.grid_4:hover .first-header{
+    color:#111;
+    text-shadow:none;
+    background-color:rgba(255,255,255,0.6);
+    
+}
+
+.grid_4:hover img {
+    opacity:0.4;
+}
 /* links */
 a,
 a:visited,
 a:active,
-a:hover{color:#444;}
-a:hover{ text-decoration:none;}
+.first-header:hover{
+    color:#222;
+    text-shadow: none;
+    
+}
 
 .grid_4{
     transition:background 8s;
+    padding-top:8px;
+    padding-bottom:8px;
 }
 
-.grid_4:hover{
-    background-color:aqua;
-    transition:background 20s;
-}
+
 
 /* Box sizing. Awesome thing. Read about it here: http://www.w3schools.com/cssref/css3_pr_box-sizing.asp */
 *{	box-sizing:border-box;
@@ -117,12 +143,10 @@ header{
 #hero,
 
 #logo_int {
-    width:100%;
-    max-width:900px;
+    width:80%;
+    max-width:600px;
     margin:auto;
 }
-
-#logo-small{display: none;}
 
 #hero h1{ 
 	line-height:1.2em;

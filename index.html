@@ -22,16 +22,14 @@
 
 <link rel="stylesheet" href="./css/normalize.css">
 <link rel="stylesheet" href="./css/basic-style.css">
-<link rel="stylesheet" href="./css/swipebox.min.css">
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+<link rel="stylesheet" href="./js/lightbox/css/lightbox.min.css">
 
 <!-- end CSS-->
     
 <!-- JS-->
 <script src="./js/libs/modernizr-2.6.2.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
-<script src="js/jquery.swipebox.min.js"></script> 
+<script src="js/lightbox/js/lightbox.min.js"></script> 
 
 <!-- end JS-->
 
@@ -43,7 +41,7 @@
     <header class="wrapper clearfix">
 		       
         <div id="banner_int">        
-        	<div id="logo_int"><img id="logo-big" src="./images/freewheel_new.png" alt="logo"><img id="logo-small" src="./images/freewheel_sm.png" alt="logo small"></div> 
+        	<div id="logo_int"><img id="logo" src="./images/freewheel_sm.png" alt="logo"></div> 
         </div>
         
         <!-- main navigation -->
@@ -67,112 +65,96 @@
         <div class="row">	
 
                 <div class="grid_4">
-                    <a href="./images/jocasseezoom1.jpg" class="swipebox" rel="gorges" title="Jocassee Gorges Access Map.">
-                    <h3 class="first-header">Jocassee Gorges</h3>
-                    <img src="./images/jocasseezoom1.jpg" alt="Jocassee gorges zoomed."/>
-                    <p>Cartographic updates, terrain shading.</p>
-                    <p class='desc'>ArcGIS, terrain tools.</p>    
+                    <a href="./images/watersheds.png"  data-lightbox="watersheds" data-title="South Carolina Watersheds.">
+                        <img src="./images/watersheds_home.jpg" alt="Watersheds map home image."/>
+                        <h2 class="first-header">Rivers &amp; Watersheds<br>
+                            of South Carolina
+                        </h2>
                     </a>
-                    <a class="swipebox" href="./images/joc_fold.jpg" rel="gorges" title="Jocassee gorges printed map."></a>
-                    <a class="swipebox" href="./images/jocasseeFull.JPG" rel="gorges" title="Jocassee gorges full"></a>
-                    <a class="swipebox" href="./images/jocasseezoom2.JPG" rel="gorges" title="Jocassee gorges detail."></a>
+                    <a  href="./images/watersheds_zoom.JPG" data-lightbox="watersheds" data-title="South Carolina Watersheds zoom."></a>
+                </div>
+            
+                    
+                <div class="grid_4">
+                    <a  href="./images/ed_book1.JPG" data-lightbox="edisto" data-title="Edisto River Basin Guidebook">
+                        <img src="./images/ed_book_home.jpg" alt="edisto overview map"/>
+                        <h2 class="first-header">Edisto Guidebook</h2>
+                    </a>
+                    <a  href="./images/ed_book3.JPG" data-lightbox="edisto" data-title="edisto maps"></a>
+                    <a  href="./images/edistooverview.JPG" data-lightbox="edisto" data-title="edisto overview map foldout"></a>
+                    <a  href="./images/orangeburg.JPG" data-lightbox="edisto" data-title="map example"></a>
+                    <a  href="./images/baughmans.JPG" data-lightbox="edisto" data-title="map example"></a>
+                    <a  href="./images/ed_book4.JPG" data-lightbox="edisto" data-title="interpretive section"></a>
                 </div>
                     
                 <div class="grid_4">
-                    <a class="swipebox" href="./images/ed_book1.JPG" rel="edisto" title="Edisto River Basin Guidebook">
-                    <h3 class="first-header">Edisto Guidebook</h3>
-                    <img src="./images/ed_book_home.jpg" alt="edisto overview map"/>
-                    <p>Flip-style map guide.</p>
-                    <p class='desc'>ArcGIS, QGIS, Inkscape</p>
+                    <a href="./images/scflooding_img.png" data-lightbox="flood" data-title="October 2015 extreme rainfall and flooding. Featured in <a href='http://atlasofdesign.org/' target='_blank'> Atlas of Design, Vol 4</a>">
+                        <img src="./images/floodmap.JPG" alt="home image of rainfall and flood map"/> 
+                    <h2 class="first-header">Extreme Rainfall</h2>                     
                     </a>
-                    <a class="swipebox" href="./images/ed_book3.JPG" rel="edisto" title="edisto maps"></a>
-                    <a class="swipebox" href="./images/edistooverview.JPG" rel="edisto" title="edisto overview map foldout"></a>
-                    <a class="swipebox" href="./images/orangeburg.JPG" rel="edisto" title="map example"></a>
-                    <a class="swipebox" href="./images/baughmans.JPG" rel="edisto" title="map example"></a>
-                    <a class="swipebox" href="./images/ed_book4.JPG" rel="edisto" title="interpretive section"></a>
-                </div>
-                    
-                <div class="grid_4">
-                    <a class="swipebox" href="./images/pagosaFull.JPG" rel="pagosa" title="Map of Peaks around Pagosa Springs, CO for parents.">
-
-        	        <h3 class="first-header">Pagosa Springs</h3>
-                    <img src="./images/pagosaP.jpg">
-                    <p>Prominent and Visible Peaks</p>
-                    <p class='desc'>ArcGIS, QGIS, Inkscape</p>    
-                    </a>
-                    <a class="swipebox" href="./images/pagosa_wall.jpg" rel="pagosa" title="Printed, hanging on wall."></a>
-                    <a class="swipebox" href="./images/pagosaDet.JPG" rel="pagosa" title="Pagosa Detail."></a>
-                    <a class="swipebox" href="./images/pagosaZoom.JPG" rel="pagosa" title="Pagosa Zoom."></a>
-                </div>
-                
+                    <a  href="./images/floodmap_zoom.JPG" data-lightbox="flood" data-title="Flooding detail."></a>
+                </div>                
         </div>
         
         <div class="row">	
 
                 <div class="grid_4">
-                    <a href="./images/FloodPrecipMapMedium.jpg" class="swipebox" rel="flood" title="October 2015 extreme rainfall and flooding.">
-                    <h3 class="first-header">Extreme Rainfall and Flooding</h3>
-                    <img src="./images/FloodPrecipMapSmall.jpg" alt=""/>
-                    <p>October 2015 extreme rainfall.</p>
-                    <p class='desc'>ArcGIS, QGIS, Inkscape, Gimp</p>    
+                    <a  href="./images/pagosaFull.JPG" data-lightbox="pagosa" data-title="Map of Peaks around Pagosa Springs, CO for parents.">
+                        <img src="./images/pagosaP.jpg"> 
+        	        <h2 class="first-header">Peaks of Pagosa</h2>
+                     
                     </a>
-                    <a class="swipebox" href="./images/floodLegend.JPG" rel="flood" title="Flooding map legend."></a>
-                    <a class="swipebox" href="./images/floodZoom.JPG" rel="flood" title="Flooding detail."></a>
-                    <a class="swipebox" href="./images/floodTimeline.jpg" rel="flood" title="Flooding timeline."></a>
+                    <a  href="./images/pagosa_wall.jpg" data-lightbox="pagosa" data-title="Printed, hanging on wall."></a>
+                    <a  href="./images/pagosaDet.JPG" data-lightbox="pagosa" data-title="Pagosa Detail."></a>
+                    <a  href="./images/pagosaZoom.JPG" data-lightbox="pagosa" data-title="Pagosa Zoom."></a>
                 </div>
                     
                 <div class="grid_4">
-                    <a class="swipebox" href="./images/rivercolors.png" rel="Rivers of Color" title="Mapping the Rivers and Streams of the US named for colors.">
-                    <h3 class="first-header">Rivers of Color</h3>
-                    <img src="./images/rivs.jpg" alt="rivers of color intro image"/>
-                    <p>Rivers of the US named after colors.</p>
-                    <p class='desc'>QGIS, Inkscape</p>
-                    </a>    
+                    <a  href="./images/guignard.JPG" data-lightbox="guignard" data-title="Guingnard Clay Quarry Trail">
+                        <img src="./images/guignard_home.jpg" alt="guignard trail home image"/>
+                        <h2 class="first-header">Guignard Quarry Trail</h2>
+                    
+                    </a>
+                    <a class="swipe box" href="./images/guignard_trail.JPG" data-lightbox="guignard" data-title="guignard trail"></a>
                 </div>
                     
                 <div class="grid_4">
-                    <a class="swipebox" href="./images/ihs1.JPG" rel="ihs" title="Idaho Hot Springs bikepacking section.">
-
-        	        <h3 class="first-header">Idaho Bikepacking</h3>
-                    <img src="./images/ihsSmall.jpg">
-                    <p>Trip summary map.</p>
-                    <p class='desc'>Ink and Watercolor</p>    
+                    <a  href="./images/ihs1.JPG" data-lightbox="ihs" data-title="Idaho Hot Springs bikepacking section.">
+                        <img src="./images/ihsSmall.jpg"> 
+        	        <h2 class="first-header">Idaho Bikepacking</h2>
+                      
                     </a>
-                    <a class="swipebox" href="./images/ihs3.JPG" rel="ihs" title=""></a>
-                    <a class="swipebox" href="./images/ihs4.JPG" rel="ihs" title=""></a>
+                    <a  href="./images/ihs3.JPG" data-lightbox="ihs" data-title=""></a>
+                    <a  href="./images/ihs4.JPG" data-lightbox="ihs" data-title=""></a>
                 </div>
                 
         </div>
         <div class="row">
                  
                 <div class="grid_4">
-                    <a class="swipebox" href="./images/ghsSmall.png" rel="ghs" title="Different lines on the landscape - road, water, and terrain.">
-
-        	        <h3 class="first-header">Granite Hot Springs</h3>
-                    <img src="./images/logo.jpg">
-                    <p>Wyoming bike ride.</p>
-                    <p class='desc'>Pen, paper</p>    
+                    <a  href="./images/ghsSmall.png" data-lightbox="ghs" data-title="Different lines on the landscape - road, water, and terrain.">
+                        <img src="./images/logo.jpg">
+        	        <h2 class="first-header">Granite Hot Springs</h2>
+                        
                     </a>
-                    <a class="swipebox" href="./images/ghsCreek.png" rel="ghs" title="Detail of the creek."></a>
-                    <a class="swipebox" href="./images/ghsRoad.png" rel="ghs" title="Detail of the road."></a>
-                    <a class="swipebox" href="./images/ghsTerrain.png" rel="ghs" title="Detail of the terrain."></a>
+                    <a  href="./images/ghsCreek.png" data-lightbox="ghs" data-title="Detail of the creek."></a>
+                    <a  href="./images/ghsRoad.png" data-lightbox="ghs" data-title="Detail of the road."></a>
+                    <a  href="./images/ghsTerrain.png" data-lightbox="ghs" data-title="Detail of the terrain."></a>
                 </div>     
                 
                 <div class="grid_4">
                     <a href="https://commons.wikimedia.org/wiki/File:SanJuanMountainsMap.png" >
-                    <h3 class="first-header">San Juan Mountains</h3>
-                    <img src="images/sanJuans.jpg" alt="san juan mtns intro">
-                    <p>For the FixWikiMaps Project</p>
-                    <p class='desc'>QGIS, Inkscape</p>    
+                    <img src="images/sanJuans.jpg" alt="san juan mtns intro"> 
+                        <h2 class="first-header">San Juan Mountains</h2>
+                     
                     </a>
                 </div>
                     
                 <div class="grid_4">
                     <a href="https://commons.wikimedia.org/wiki/File:SangreDeCristo.png" >
-                    <h3 class="first-header">Sangre de Cristo Mountains</h3>
-                    <img src="images/sdcMtns.jpg" alt="sangre de cristo mtns intro">
-                    <p>For the FixWikiMaps Project</p>
-                    <p class='desc'>QGIS, Inkscape</p>    
+                    <img src="images/sdcMtns.jpg" alt="sangre de cristo mtns intro"> 
+                        <h2 class="first-header">Sangre de Cristo Mountains</h2>
+                       
                     </a>
                 </div>
             
@@ -181,22 +163,42 @@
         <div class="row">
             
                 <div class="grid_4">
-                    <a class="swipebox" href="./images/erocktrails_lores.jpg" rel="Enchanted Rock" title="Enchanted Rock State Natural Area recreation map.">
-                    <h3 class="first-header">E-Rock Trails</h3>
-                    <img src="./images/erockthumb.jpg" alt="erock trails intro image"/>
-                    <p>Simple trail guide for E-Rock, Texas.</p>
-                    <p class='desc'>ArcGIS, Inkscape</p>    
+                    <a  href="./images/erocktrails_lores.jpg" data-lightbox="Enchanted Rock" data-title="Enchanted Rock State Natural Area recreation map.">
+                   <img src="./images/erockthumb.jpg" alt="erock trails intro image"/>
+                        <h2 class="first-header">E-Rock Trails</h2>
+                    
                     </a>
                 </div>    
+                
                 <div class="grid_4">
-                    <a class="swipebox" href="./images/realgdp2014.png" rel="cartogram" title="Non-contiguous cartogram of real GDP by state, for Fixr.com" >
-                    <h3 class="first-header">U.S. GDP by State</h3>
+                    <a href="./images/jocasseezoom1.jpg"  data-lightbox="gorges" data-title="Jocassee Gorges Access Map.">
+                    <img src="./images/jocasseezoom1.jpg" alt="Jocassee gorges zoomed."/> 
+                        <h2 class="first-header">Jocassee Gorges</h2>
+                    
+                    </a>
+                    <a  href="./images/joc_fold.jpg" data-lightbox="gorges" data-title="Jocassee gorges printed map."></a>
+                    <a  href="./images/jocasseeFull.JPG" data-lightbox="gorges" data-title="Jocassee gorges full"></a>
+                    <a  href="./images/jocasseezoom2.JPG" data-lightbox="gorges" data-title="Jocassee gorges detail."></a>
+                </div>
+            
+                <div class="grid_4">
+                    <a  href="./images/rivercolors.png" data-lightbox="Rivers of Color" data-title="Mapping the Rivers and Streams of the US named for colors.">
+                    <img src="./images/rivs.jpg" alt="rivers of color intro image"/>
+                        <h2 class="first-header">Rivers of Color</h2>
+                    
+                    </a>    
+                </div>
+            
+            <!--
+                <div class="grid_4">
+                    <a  href="./images/realgdp2014.png" rel="cartogram" title="Non-contiguous cartogram of real GDP by state, for Fixr.com" >
+                    <h2 class="first-header">U.S. GDP by State</h2>
                     <img src="images/realgdpthumb.png" alt="gdp by state intro">
                     <p>Cartogram for <a href="http://fixr.com">Fixr.com</a></p>
                     <p class='desc'>QGIS, IndieMapper, Inkscape</p> 
                     </a>
                 </div>        
-                
+                -->
                     
             </div> 
             <h2 class="heads" id="web">------ Web ------</h2>
@@ -204,74 +206,71 @@
                     
                  <div class="grid_4">
                     <a href="http://www.dnr.sc.gov/geology/RecentEarthquakes.htm">
-                    <h3 class="first-header">South Carolina Earthquakes</h3>
                     <img src="./images/eqs.JPG" alt="sc earthquakes feed"/>
-                    <p>South Carolina Geological Survey</p>
-                    <p class='desc'>Leaflet, Mapbox, JS, USGS API</p>     
+                        <h2 class="first-header">South Carolina Earthquakes</h2>
+                       
                     </a>
                 </div>    
                
                 <div class="grid_4">
                     <a href="http://heritagetrust.dnr.sc.gov/properties.html">
-                    <h3 class="first-header">SC Heritage Preserves</h3>
                     <img src="./images/hp_props.JPG" alt="sc heritage trust finder"/>
-                    <p>South Carolina Heritage Trust</p>
-                    <p class='desc'>ArcGIS Online, ESRI Leaflet, JS</p>     
+                        <h2 class="first-header">SC Heritage Preserves</h2>
+                       
                     </a>
                 </div>    
                     
                 <div class="grid_4">
-                    <a href="./web/precip3D/precip3d.html">
-                    <h3 class="first-header">South Carolina Rainfall - 3D</h3>
-                    <img src="./images/sc3d.JPG" alt="3d rainfall intro image"/>
-                    <p>From Historic 2015 Flooding</p>
-                    <p class='desc'>ArcGIS, QGIS, QGIS2ThreeJS</p>     
+                    <a href="http://scdrought.com">
+                    <img src="./images/scdrought.JPG" alt="sc drought website image"/>
+                        <h2 class="first-header">SC Drought Website</h2>
+                       
                     </a>
+                </div>     
+                    
                 </div>
-                
-                </div>
-                <div class="row">
-                
-                <div class="grid_4">
-                    <a href="http://www.dnr.sc.gov/water/hydro/WellRecords/locatewells/index.html">
-                    <h3 class="first-header">Well Finder</h3>
-                    <img src="./images/wellLocate.JPG" alt="well finder intro image"/>
-                    <p>SCDNR Hydrology Section</p>
-                    <p class='desc'>ArcGIS, QGIS, Leaflet+plugins</p>     
-                    </a>
-                </div> 
+                <div class="row">        
                     
                 <div class="grid_4">
+                    <a href="./web/precip3D/precip3d.html">
+                    <img src="./images/sc3d.JPG" alt="3d rainfall intro image"/>
+                        <h2 class="first-header">3D Rainfall</h2>
+                        
+                    </a>
+                </div>
+
+                
+                <div class="grid_4">
                     <a href="./web/bikesodacity/index.htm">
-                    <h3 class="first-header">Bike Soda City</h3>
                     <img src="./images/colabike.jpg" alt="columbia bike intro image"/>
-                    <p>Mapping bike-ability in Columbia, SC.</p>
-                    <p class='desc'>QGIS, Mapbox/Leaflet</p>     
+                        <h2 class="first-header">Bike Soda City</h2>
+                        
                     </a>
                 </div>    
                    
                 <div class="grid_4">
-                    <a href="http://www.dnr.sc.gov/marine/receiverstudy/animations/index.html ">
-                    <h3 class="first-header">Animated Marine Species</h3>
-                    <img src="./images/anim.JPG" alt="marine species animation intro image"/>
-                    <p>SCDNR Marine Resources Div</p>
-                    <p class='desc'>ArcGIS, ArcGIS JavaScript API, JQuery</p>     
+                    <a href="http://www.dnr.sc.gov/water/hydro/WellRecords/locatewells/index.html">
+                    <img src="./images/wellLocate.JPG" alt="well finder intro image"/>  
+                        <h2 class="first-header">Well Finder</h2>
+                      
                     </a>
-                </div>    
+                </div>     
+    
                 
                 </div>
                 
             <h2 class="heads" id="about">------ About ------</h2>
             <p class="aboutText" style="text-align:justify">
-                Tanner Arrington. GIS and cartography. Static and web. Columbia, South Carolina. Some examples of the work I've done, either at work or on my own, are above. I also like to play around with web design, like this website. 
+                Tanner Arrington  |  GIS and cartography  |  Static and web  |  Columbia, South Carolina<br>
+Here you find some examples of the work I've done, either at work or on my own.
                 <br><br>
                 I love how maps, both static and interactive, can communicate information uniquely and effectively. Both at work and on the side, I use the ESRI suite of software plus open source products like <a href="http://www.qgis.org">QGIS</a>, <a href="https://inkscape.org/">Inkscape</a>, and <a href="http://leafletjs.com/">Leaflet</a>. Really whichever tool is best for the job. 
                 <br><br> 
                 A lot of the things I enjoy are map-centric in many ways, such as exploring on my bicycle, floating and fishing rivers, hiking and camping, and exploring new cities and towns. <br><br>
-                Want to get at me?  <a style="background-color:orange;" href="mailto:freewheel.carto@gmail.com?Subject=Maps">   Send me an email</a>  if you are interested in custom mapping, GIS, and cartography. Or if you'd like help with python or javascript development for GIS projects. 
+                You can <a style="background-color:orange;" href="mailto:freewheel.carto@gmail.com?Subject=Maps">Send me an email.</a>  
             </p>
         
-            <a class="swipebox"  href="./images/geologyFull.jpg" rel="geology" title="photo: <a id='yo' href='http://michaelfriberg.com'>Michael Friberg</a>"><img src="images/geology.jpg" alt="utah photo"></a>
+            <a   href="./images/geologyFull.jpg" data-lightbox="geology" data-title="photo: <a href='http://michaelfriberg.com'>Michael Friberg</a>"><img src="images/geology.jpg" alt="utah photo"></a>
         
     </section><!-- #end content area -->
     
