@@ -29,6 +29,11 @@ h1, h2, h3, h4, h5, h6,#topnav{
 	padding:0;
 } 
 
+#page-head{
+    font-size:3.7em;
+    line-height: 0.8em;
+}
+
 .heads {
     text-align:center;
 }
@@ -104,13 +109,6 @@ header{
 	padding:15px 0;
 }
 
-#banner_int{ 
-	text-align:center;
-    width:100%;
-    margin-bottom:10px;
-    overflow:hidden;
-}
-
 #backup {
     background-image: url('../images/up.svg');
     background-repeat: no-repeat;
@@ -137,11 +135,26 @@ header{
 
 #hero,
 
+#logo {max-height: 160px;
+margin-right:20px;}
+
 #logo_int {
     width:80%;
     max-width:600px;
     margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#banner_int{ 
+	text-align:center;
+    width:100%;
+    margin-bottom:10px;
+    overflow:hidden;
+}
+
+#carto-h {margin-left:15px;}
 
 #hero h1{ 
 	line-height:1.2em;
