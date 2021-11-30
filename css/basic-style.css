@@ -32,6 +32,7 @@ h1, h2, h3, h4, h5, h6,#topnav{
 #page-head{
     font-size:3.7em;
     line-height: 0.8em;
+    text-align: left;
 }
 
 .heads {
@@ -140,7 +141,7 @@ margin-right:20px;}
 
 #logo_int {
     width:80%;
-    max-width:600px;
+    max-width:1000px;
     margin:auto;
     display: flex;
     justify-content: center;
@@ -304,51 +305,31 @@ a.buttonlink{
   clear: both;
 }
 
+#topnav ul li {margin-top: 25px;}
 
-@media only screen and (max-width:400px){
-    #logo-big{
-        display:none;
+@media only screen and (max-width:800px){
+    #logo_int {
+        flex-wrap: wrap;
     }
-    #logo-small{
-        display:block;
-        padding:0 5px;
+    #page-head {
+        font-size: 2.5em;
     }
 }
 
-/*
-LARGER MOBILE DEVICES
-This is for mobile devices with a bit larger screens.
-*/
-@media only screen and (min-width: 481px) {
-#banner_int{
-	float:left;
-	text-align:left;
-	margin-bottom:0px;/*this depends on the height of the logo*/
-    width:95%;
-    overflow: hidden;
-}
-
-} 
 
 /*
 TABLET & SMALLER LAPTOPS
 The average viewing window and preferred media query for those is 768px.
 But I think that some more breathing space is good:)
 */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
 
     .wrapper{
         max-width: 1200px; 
         margin: .75em auto;
     }
 
-    #banner_int{ 
-        float:left; 
-        text-align:left;
-        margin-bottom:0px;
-        width:95%;
-        overflow:hidden;
-    }   
+   
 
     header{
         padding:0;
