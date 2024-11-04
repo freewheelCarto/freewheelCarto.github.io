@@ -44,16 +44,16 @@
     <header class="wrapper clearfix">
 		       
         <div id="banner_int">        
-        	<div id="logo_int"><img id="logo" src="./images/freewheel_logo.png" alt="freewheel logo"><h1 id="page-head">freewheel<br><span id="carto-h">cartographics</span></h1></div> 
+        	<div id="logo_int"><img id="logo" src="./images/freewheel_logo.png" alt="freewheel logo"><h1 id="page-head">freewheel<br><span id="carto-h">maps</span></h1></div> 
         </div>
         
         <!-- main navigation -->
         <nav id="topnav" role="navigation"> 
         <ul class="srt-menu">
-            <li ><a href="#about">About</a></li>
 			<li ><a href="#proj">Maps</a></li>
             <li ><a href="#web">Web</a></li>
-			<li ><a href="#writing">Writing</a></li>
+			<li ><a href="#GIS">GIS</a></li>
+			<li ><a href="#about">About</a></li>
 		</ul>     
 		</nav><!-- #topnav -->
   
@@ -204,21 +204,21 @@
             <div class="row">
 
                 <div class="grid_4">
-                    <a href="http://www.dnr.sc.gov/climate/sco/hurricanes/">
+                    <a href="https://www.dnr.sc.gov/climate/sco/hurricanes/">
                         <img src="./images/hurricanes.JPG" alt="sc hurricanes viewer image" />
                         <h2 class="first-header">South Carolina Hurricanes</h2>
                     </a>
                 </div>
 
                 <div class="grid_4">
-                    <a href="http://hydrology.dnr.sc.gov/groundwater-data">
-                        <img src="./images/hydro.JPG" alt="sc groundwater data viewer image" />
-                        <h2 class="first-header">Groundwater Data</h2>
+                    <a href="https://public-lands-scdnr.hub.arcgis.com">
+                        <img src="./images/public-lands.JPG" alt="scdnr public lands viewer image" />
+                        <h2 class="first-header">SCDNR Public Lands</h2>
                     </a>
                 </div>
 
                 <div class="grid_4">
-                    <a href="http://scdrought.com">
+                    <a href="https://scdrought.com">
                         <img src="./images/scdrought.JPG" alt="sc drought website image" />
                         <h2 class="first-header">SC Drought Website</h2>
 
@@ -226,37 +226,29 @@
                 </div>
             </div>
             
-        <!--
-        <div class="row">
+			
+			<h2 class="heads" id="GIS" style="margin-top:30px;">------ GIS ------</h2>
+            <p class="aboutText" style="text-align:left">I spent the last decade as a GIS Manager for the South Carolina Department of Natural Resources: five years serving in the Land, Water, and Conservation Division, and another five as the agency GIS director.</p>
+			<p class="aboutText" style="text-align:left; font-weight:bold;">I now collaborate with the great folks at <a style="background-color:orange;" href="https://www.communitygeo.com">Community Geographics.<a/></p>
+			<p class="aboutText" style="text-align:left">I like high quality cartography, scripting with Python, and modeling GIS workflows. I've worked in just about every corner of Esri's ArcGIS platform, and also with QGIS and other open-source tools.</p>
+			<p class="aboutText" style="text-align:left">The conservation, environmental, natural resources, and landscape monitoring spaces in GIS are where my mind has been since college, but I like to learn new things.</p>
+			<p class="aboutText" style="text-align:left">If you are in need of custom cartography or expertise in GIS, you can <a style="background-color:orange;" href="mailto:tanner@freewheelmaps?Subject=Maps">send me an email to get in touch.</a> I'll be glad to hear from you!</p>
+			
+            <h2 class="heads" id="about" style="margin-top:50px;">------ About ------</h2>
+            <p class="aboutText" style="text-align:justify">
+                <style>
+                    .pipe{
+                        background-color: #66cc99;
+                        padding: 0px 4px;
+                        margin: 0px 3px
+                    }
+                </style>
+                Tanner Arrington  <span class="pipe">|</span>  Columbia, South Carolina
+                <br><br>
+                A lot of the things I enjoy are map-centric, like exploring on my bicycle, floating and fishing rivers, hiking, camping, and wandering around. So I also like maps, and at work I make maps (among other things).<br><br>
                 
-                <div class="grid_4">
-                    <a href="https://www.dnr.sc.gov/geology/recent-earthquakes.html">
-                        <img src="./images/eqs.JPG" alt="sc earthquakes feed" />
-                        <h2 class="first-header">South Carolina Earthquakes</h2>
-
-                    </a>
-                </div>
-
-                <div class="grid_4">
-                    <a href="http://heritagetrust.dnr.sc.gov/properties.html">
-                        <img src="./images/hp_props.JPG" alt="sc heritage trust finder" />
-                        <h2 class="first-header">SC Heritage Preserves</h2>
-
-                    </a>
-                </div>
-                
-                <div class="grid_4">
-                    <a href="./web/precip3D/precip3d.html">
-                        <img src="./images/sc3d.JPG" alt="3d rainfall intro image" />
-                        <h2 class="first-header">3D Rainfall</h2>
-
-                    </a>
-                </div>
-            </div>
-            -->
-
-			<h2 class="heads" id="writing" style="margin-top:30px;">------ Writing ------</h2>
-            <p class="aboutText" style="text-align:left">
+            </p>
+			<p class="aboutText" style="text-align:left">
                 I like to ride bikes and sometimes I write about it:</p>
 					<ul id="pubs" style="text-align:left;margin-left:1rem">
 						<li><i><a href="https://bikepacking.com/plog/lonesome-lands-and-sugar-sand/" target="_blank">Lonesome Lands and Sugar Sand</a></i> on Bikepacking.com (Feb 2024)</li>
@@ -273,21 +265,6 @@
 					line-height:1.8rem;
 					}
 			</style>
-			
-            <h2 class="heads" id="about" style="margin-top:50px;">------ About ------</h2>
-            <p class="aboutText" style="text-align:justify">
-                <style>
-                    .pipe{
-                        background-color: #66cc99;
-                        padding: 0px 4px;
-                        margin: 0px 3px
-                    }
-                </style>
-                Tanner Arrington  <span class="pipe">|</span>  Columbia, South Carolina
-                <br><br>
-                A lot of the things I enjoy are map-centric, like exploring on my bicycle, floating and fishing rivers, hiking, camping, and wandering around. So I also like maps, and at work I make maps (among other things).<br><br>
-                You can <a style="background-color:orange;" href="mailto:freewheel.carto@gmail.com?Subject=Maps">send me an email.</a>  
-            </p>
         
             <a   href="./images/geologyFull.jpg" data-lightbox="tanner" data-title="photo: <a href='http://michaelfriberg.com'>Michael Friberg</a>"><img src="images/geology.jpg" alt="utah photo"></a>
         
@@ -336,13 +313,12 @@ $(document).ready(function(){
 <!-- footer area -->    
 <footer>
 	<div id="colophon" class="wrapper clearfix">
-    <p>Freewheel Cartographics © <script>document.write(new Date().getFullYear())</script><br>
-        <a style="color:#eee;" href="mailto:freewheel.carto@gmail.com?Subject=Maps">freewheel.carto@gmail.com</a><br>
-        <a style="color:#eee;" href="https://github.com/freewheelCarto">github.com/freewheelCarto</a>
+    <p>Freewheel Maps LLC © <script>document.write(new Date().getFullYear())</script><br>
+        <a style="color:#eee;" href="mailto:tanner@freewheelmaps.com?Subject=Maps">tanner@freewheelmaps.com</a><br>
     </p>
     </div>
     
-    <!--You can NOT remove this attribution statement from any page, unless you get the permission from prowebdesign.ro--><div id="attribution" class="wrapper clearfix" style="color:#666; font-size:11px;">Site modified from <a href="http://www.prowebdesign.ro/simple-responsive-template/" target="_blank" title="Simple Responsive Template is a free software by www.prowebdesign.ro" style="color:#777;">Simple Responsive Template</a></div><!--end attribution-->
+    <!--You can NOT remove this attribution statement from any page, unless you get the permission from prowebdesign.ro--><div id="attribution" class="wrapper clearfix" style="color:#666; font-size:11px;">Site customized from <a href="http://www.prowebdesign.ro/simple-responsive-template/" target="_blank" title="Simple Responsive Template is a free software by www.prowebdesign.ro" style="color:#777;">Simple Responsive Template</a></div><!--end attribution-->
     
 </footer><!-- #end footer area --> 
 
