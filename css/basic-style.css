@@ -141,7 +141,9 @@ header{
 #hero,
 
 #logo {max-height: 160px;
-margin-right:20px;}
+margin-right:20px;
+margin-left:20px;
+}
 
 #logo_int {
     width:80%;
