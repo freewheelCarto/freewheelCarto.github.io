@@ -207,7 +207,7 @@ p{ margin:0;}
 
 .inlink{color:#ddd}
 
-.aboutText {width:95%; height: auto;  margin:1.5em auto;}
+.aboutText {width:95%; height: auto;  margin:1.5em auto; font-size:1.1rem;}
 
 /* RESPONSIVE IMAGES */
 img{ max-width:100%; height:auto;}
