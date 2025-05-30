@@ -90,10 +90,10 @@ a:active,
     display:inline-block;
     margin:1% 1em;
     font-size:1.5em;
-    min-width: 120px;
+    width: 140px;
     background-color:#66cc99;
     transition: background 1s;
-    margin-top: 25px;
+    margin-top: 20px;
     padding: 8px;
     border-radius:3px;
     box-shadow: 3px 3px 0px #555555;
@@ -102,6 +102,17 @@ a:active,
 #topnav ul li:hover{
     background-color:aqua;
     box-shadow: 3px 3px 0px #ffcc33;
+}
+
+#contact-fixed {
+	position:fixed;
+	top: 0px;
+	left: 0px;
+	background-color:orange;
+	border-radius: 0px 0px 5px 0px;
+	width:250px;
+	padding:5px;
+	z-index:1000;
 }
 
 /* structure */   
@@ -158,6 +169,7 @@ margin-left:20px;
 	text-align:center;
     width:100%;
     margin-bottom:10px;
+	margin-top:30px;
     overflow:hidden;
 }
 
