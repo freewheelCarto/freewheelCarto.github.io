@@ -15,7 +15,7 @@ BASE (MOBILE) SIZE
 
 /* typography */
 body{
-	/*color:#222;*/
+	color:#111;
 	font-family:'Merriweather Sans', Arial, Helvetica, sans-serif; 
 	font-size:1em;
 	line-height:1.4em; 
@@ -219,7 +219,57 @@ p{ margin:0;}
 
 .inlink{color:#ddd}
 
-.aboutText {width:95%; height: auto;  margin:1.5em auto; font-size:1.1rem;}
+.aboutText {height: auto;  margin:1.5em auto; font-size:1.1rem;}
+
+.thumbs img {
+	box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+#services_list {
+	list-style:none; line-height:2.5rem; font-size:1.2rem;  padding:0px;
+}
+
+#eos_list {
+	list-style:none; line-height:2.5rem; font-size:1.2rem;  padding:0px;
+}
+
+#services_list li {
+	background-color:;
+	background-image: linear-gradient(to right, rgb(102, 204, 153, 0.7) 0%, rgb(0, 255, 255, 0.2) 100%);
+	margin: 8px 0px;
+}
+
+#eos_list li {
+	background-color:;
+	background-image: linear-gradient(to right, rgb(0, 255, 255, 0.2) 0%, rgb(102, 204, 153, 0.7) 100%);
+	margin: 8px 0px;
+}
+
+.map-title {
+	background-color:;
+	background-image: linear-gradient(to right, rgb(102, 204, 153, 0.5) 0%, rgb(0, 255, 255, 0.1) 100%);
+	margin: 8px 0px;
+	padding: 3px;
+	line-height:2.5rem; font-size:1.2rem;
+}
+
+.iframe-container {
+  position: relative; /* Allows absolute positioning of the iframe inside */
+  overflow: hidden;   /* Hides any content that might protrude */
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (9/16 * 100) */
+  height: 0;          /* Height is set to 0 as padding-top gives the element its height */
+}
+
+.iframe-container iframe {
+  position: absolute; /* Positions the iframe relative to its container */
+  top: 0;
+  left: 0;
+  width: 100%;        /* Ensures the iframe fills the container's width */
+  height: 100%;       /* Ensures the iframe fills the container's height */
+  border: none;
+}
 
 /* RESPONSIVE IMAGES */
 img{ max-width:100%; height:auto;}
